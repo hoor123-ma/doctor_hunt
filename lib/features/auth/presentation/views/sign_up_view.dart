@@ -60,7 +60,7 @@ class SignUpView extends StatelessWidget {
                             ),
                           ),
                           onTap: () {
-                            context.go(RouteNames.loginRoute);
+                            context.go(RouteNames.signInRoute);
                           },
                         ),
                       ],

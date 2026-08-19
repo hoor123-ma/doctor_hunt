@@ -40,6 +40,7 @@ class _SignUpFormState extends State<SignUpForm> {
             hintText: "Name",
             validator: validateFullName,
           ),
+          SizedBox(height: 15),
           CustomTextField(
             controller: emailController,
             hintText: "Email",
@@ -51,7 +52,7 @@ class _SignUpFormState extends State<SignUpForm> {
             hintText: "Password",
             validator: validatePassword,
           ),
-          SizedBox(height: 5),
+          SizedBox(height: 10),
           Row(
             children: [
               Checkbox(
@@ -61,9 +62,12 @@ class _SignUpFormState extends State<SignUpForm> {
                   setState(() {});
                 },
               ),
-              Text(
-                "I agree with the Terms of Service & Privacy Policy",
-                style: TextStyle(color: AppColors.primaryColor, fontSize: 14),
+
+              Expanded(
+                child: Text(
+                  "I agree with the Terms of Service & Privacy Policy",
+                  style: TextStyle(color: AppColors.primaryColor, fontSize: 14),
+                ),
               ),
             ],
           ),
