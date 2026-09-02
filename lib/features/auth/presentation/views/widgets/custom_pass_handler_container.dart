@@ -1,5 +1,4 @@
 import 'package:doctor_hunt/core/theme/app_text_style.dart';
-import 'package:doctor_hunt/core/utils/functions/validations/email_validator.dart';
 import 'package:doctor_hunt/core/utils/functions/validations/password_validator.dart';
 import 'package:doctor_hunt/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/core/widgets/custom_password_field.dart';

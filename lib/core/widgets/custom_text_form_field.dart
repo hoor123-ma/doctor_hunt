@@ -10,6 +10,8 @@ class CustomTextField extends StatelessWidget {
   final bool obscureText;
   final TextEditingController? controller;
   final void Function(String)? onChanged;
+  final Widget? suffixIcon;
+  final Widget? prefixIcon;
 
   const CustomTextField({
     super.key,
@@ -20,6 +22,8 @@ class CustomTextField extends StatelessWidget {
 
     this.controller,
     this.onChanged,
+    this.suffixIcon,
+    this.prefixIcon,
   });
 
   @override
@@ -30,6 +34,8 @@ class CustomTextField extends StatelessWidget {
       obscureText: obscureText,
       validator: validator,
       decoration: InputDecoration(
+        prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon,
         contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 8),
 
         disabledBorder: OutlineInputBorder(

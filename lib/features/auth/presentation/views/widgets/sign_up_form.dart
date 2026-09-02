@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/core/routes/route_names.dart';
 import 'package:doctor_hunt/core/theme/app_colors.dart';
 import 'package:doctor_hunt/core/utils/functions/validations/email_validator.dart';
 import 'package:doctor_hunt/core/utils/functions/validations/name_validator.dart';
@@ -5,7 +6,10 @@ import 'package:doctor_hunt/core/utils/functions/validations/password_validator.
 import 'package:doctor_hunt/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/core/widgets/custom_password_field.dart';
 import 'package:doctor_hunt/core/widgets/custom_text_form_field.dart';
+import 'package:doctor_hunt/features/auth/presentation/controller/signup/signup_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -52,7 +56,7 @@ class _SignUpFormState extends State<SignUpForm> {
             hintText: "Password",
             validator: validatePassword,
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 20),
           Row(
             children: [
               Checkbox(
@@ -71,8 +75,19 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
             ],
           ),
-          SizedBox(height: 40),
-          CustomButton(onTap: () {}, title: 'Sign up'),
+          SizedBox(height: 10),
+          CustomButton(
+            onTap: () async {
+              if (_formKey.currentState!.validate()) {
+                await BlocProvider.of<SignupCubit>(context).signUp(
+                  nameController.text,
+                  emailController.text,
+                  passwordController.text,
+                );
+              }
+            },
+            title: 'Sign up',
+          ),
         ],
       ),
     );

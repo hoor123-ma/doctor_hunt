@@ -21,14 +21,14 @@ class _RoleSelectionViewState extends State<RoleSelectionView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GradientBackground(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: AppConsts.horizentalPadding,
-            vertical: 60,
-          ),
-          child: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: AppConsts.horizentalPadding,
+            ),
             child: Column(
               children: [
+                SizedBox(height: 60),
                 Icon(
                   Icons.medical_services_rounded,
                   color: AppColors.primaryColor,
@@ -73,7 +73,7 @@ class _RoleSelectionViewState extends State<RoleSelectionView> {
                         "Manage doctors, appointments,\nusers, and the platform.",
                   ),
                 ),
-                SizedBox(height: 48),
+                SizedBox(height: 20),
                 CustomButton(
                   onTap: () {
                     context.go(RouteNames.signInRoute);

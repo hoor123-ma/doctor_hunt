@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:doctor_hunt/core/theme/app_colors.dart';
 import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:flutter/material.dart';
 
@@ -57,9 +58,17 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
               borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(color: Colors.grey, width: 0.5),
             ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: AppColors.primaryColor, width: 0.5),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: AppColors.primaryColor, width: 0.5),
+            ),
             fillColor: Colors.white,
             filled: true,
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+
             hintText: widget.hintText,
             hintStyle: AppTextStyle.subTitle,
           ),

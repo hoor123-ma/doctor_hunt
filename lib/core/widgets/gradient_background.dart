@@ -15,18 +15,20 @@ class GradientBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(color: Colors.white),
-
+        Container(color: Color(0xffE6ECEA)),
         if (showTopGradient)
           Positioned(
             top: -100,
             left: -100,
             child: Container(
-              width: 300,
-              height: 300,
+              width: 400,
+              height: 400,
               decoration: const BoxDecoration(
                 gradient: RadialGradient(
-                  colors: [Color.fromARGB(255, 145, 208, 231), Colors.white],
+                  colors: [
+                    Color.fromARGB(255, 145, 208, 231),
+                    Color(0xffE6ECEA),
+                  ],
                 ),
               ),
             ),
@@ -41,7 +43,10 @@ class GradientBackground extends StatelessWidget {
               height: 300,
               decoration: const BoxDecoration(
                 gradient: RadialGradient(
-                  colors: [Color.fromARGB(255, 148, 237, 194), Colors.white],
+                  colors: [
+                    Color.fromARGB(255, 148, 237, 194),
+                    Color(0xffE6ECEA),
+                  ],
                 ),
               ),
             ),
