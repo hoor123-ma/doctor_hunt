@@ -45,8 +45,8 @@ class _FavouriteDoctorCardState extends State<FavouriteDoctorCard> {
         ),
         !isFavourite
             ? Positioned(
-                right: 30,
-                top: 20,
+                right: 10,
+                top: 15,
                 child: GestureDetector(
                   onTap: () {
                     isFavourite = !isFavourite;
@@ -59,8 +59,8 @@ class _FavouriteDoctorCardState extends State<FavouriteDoctorCard> {
                 ),
               )
             : Positioned(
-                right: 30,
-                top: 20,
+                right: 10,
+                top: 15,
                 child: GestureDetector(
                   onTap: () {
                     isFavourite = !isFavourite;

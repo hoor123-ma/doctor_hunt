@@ -79,6 +79,7 @@ class _AvailableTimesState extends State<AvailableTimes> {
                   },
                 ),
               ),
+            SizedBox(height: 40),
           ],
         ),
       ],

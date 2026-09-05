@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:doctor_hunt/core/consts/app_consts.dart';
 import 'package:doctor_hunt/core/services/auth_service.dart';
-import 'package:doctor_hunt/core/services/shared_prefrence_services.dart';
+import 'package:doctor_hunt/core/services/fire_store_service.dart';
 import 'package:doctor_hunt/core/utils/errors/auth_error.dart';
 import 'package:doctor_hunt/features/auth/data/models/user_model.dart';
 import 'package:doctor_hunt/features/auth/data/repos/auth_repo.dart';
@@ -10,8 +10,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthRepoImp extends AuthRepo {
   final AuthService authService;
+  final FirestoreService firestoreService;
 
-  AuthRepoImp({required this.authService});
+  AuthRepoImp({required this.authService, required this.firestoreService});
 
   @override
   Future<Either<AuthError, UserModel>> signInWithEmailAndPassword(
@@ -26,13 +27,12 @@ class AuthRepoImp extends AuthRepo {
       if (user == null) {
         return Left(AuthError(errorMsg: 'User not found'));
       }
-      return Right(
-        UserModel(
-          uid: user.uid,
-          name: user.displayName ?? "",
-          email: user.email ?? "",
-        ),
+      final result = await firestoreService.getDoc(
+        AppConsts.usersCollection,
+        user.uid,
       );
+      UserModel currentUser = UserModel.fromJson(result.data()!);
+      return Right(currentUser);
     } catch (e) {
       if (e is FirebaseAuthException) {
         return Left(AuthError.fromFirebaseAuthException(e));
@@ -60,6 +60,11 @@ class AuthRepoImp extends AuthRepo {
         email: credential.user!.email!,
       );
 
+      await firestoreService.setDoc(
+        AppConsts.usersCollection,
+        user.uid,
+        user.toJson(),
+      );
       return Right(user);
     } catch (e) {
       if (e is FirebaseAuthException) {
@@ -101,13 +106,28 @@ class AuthRepoImp extends AuthRepo {
       if (user == null) {
         return Left(AuthError(errorMsg: 'User not found'));
       }
-      return Right(
-        UserModel(
-          uid: user.uid,
-          name: user.displayName ?? "",
-          email: user.email ?? "",
-        ),
+      final result = await firestoreService.getDoc(
+        AppConsts.usersCollection,
+        user.uid,
       );
+
+      if (result.exists && result.data() != null) {
+        return Right(UserModel.fromJson(result.data()!));
+      }
+
+      // المستخدم جديد ومفيش document
+      final newUser = UserModel(
+        uid: user.uid,
+        name: user.displayName ?? "",
+        email: user.email ?? "",
+      );
+
+      await firestoreService.setDoc(
+        AppConsts.usersCollection,
+        user.uid,
+        newUser.toJson(),
+      );
+      return Right(newUser);
     } catch (e) {
       if (e is FirebaseAuthException) {
         return Left(AuthError.fromFirebaseAuthException(e));

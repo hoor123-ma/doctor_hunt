@@ -38,7 +38,7 @@ class FavouriteDoctors extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        childAspectRatio: 1.1,
+        childAspectRatio: 1,
         crossAxisCount: 2,
         mainAxisSpacing: 4,
       ),

@@ -38,7 +38,7 @@ class _AppointmentSelectionState extends State<AppointmentSelection> {
     final l10n = S.of(context);
 
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(45),
@@ -55,12 +55,15 @@ class _AppointmentSelectionState extends State<AppointmentSelection> {
           children: [
             Text(l10n.availableTime, style: AppTextStyle.largeTitle),
 
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            // Available Times
+            Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 4,
+              runSpacing: 8,
               children: List.generate(availableTimes.length, (index) {
-                var time = availableTimes[index].split(' ');
+                final time = availableTimes[index].split(' ');
 
                 return GestureDetector(
                   onTap: () {
@@ -77,16 +80,19 @@ class _AppointmentSelectionState extends State<AppointmentSelection> {
               }),
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             Text(l10n.reminderMeBefore, style: AppTextStyle.largeTitle),
 
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            // Reminder Times
+            Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 4,
+              runSpacing: 8,
               children: List.generate(remiderTimes.length, (index) {
-                var reminder = remiderTimes[index].split(' ');
+                final reminder = remiderTimes[index].split(' ');
 
                 return GestureDetector(
                   onTap: () {
@@ -103,10 +109,10 @@ class _AppointmentSelectionState extends State<AppointmentSelection> {
               }),
             ),
 
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
 
             Padding(
-              padding: EdgeInsetsGeometry.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: CustomButton(
                 title: l10n.confirm,
                 onTap: () {
@@ -131,7 +137,7 @@ class _AppointmentSelectionState extends State<AppointmentSelection> {
             margin: EdgeInsets.symmetric(
               horizontal: AppConsts.horizentalPadding,
             ),
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
@@ -140,9 +146,9 @@ class _AppointmentSelectionState extends State<AppointmentSelection> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: Color(0xff0EBE7F).withValues(alpha: 0.2),
+                    color: const Color(0xff0EBE7F).withValues(alpha: 0.2),
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
@@ -152,15 +158,15 @@ class _AppointmentSelectionState extends State<AppointmentSelection> {
                   ),
                 ),
 
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
                 Text(l10n.thankYou, style: AppTextStyle.largeTitle),
 
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
 
                 Text(l10n.appointmentSuccessful, style: AppTextStyle.subTitle),
 
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
 
                 Text(
                   l10n.appointmentDetails(
@@ -172,7 +178,7 @@ class _AppointmentSelectionState extends State<AppointmentSelection> {
                   textAlign: TextAlign.center,
                 ),
 
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
                 CustomButton(
                   title: l10n.done,
@@ -212,15 +218,16 @@ class CustomTimeContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 4),
-      padding: EdgeInsets.all(12),
+      margin: const EdgeInsets.symmetric(horizontal: 3),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: isSelected
             ? AppColors.primaryColor
-            : Color(0xff0EBE7F).withValues(alpha: 0.2),
+            : const Color(0xff0EBE7F).withValues(alpha: 0.2),
         shape: BoxShape.circle,
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             title1,

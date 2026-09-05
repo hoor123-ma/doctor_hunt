@@ -20,14 +20,17 @@ class AppointmentView extends StatelessWidget {
               ),
               child: CustomAppBar(title: S.of(context).appointment),
             ),
-            Padding(
-              padding: EdgeInsetsGeometry.symmetric(
-                horizontal: AppConsts.horizentalPadding,
+            Expanded(
+              flex: 2,
+              child: Padding(
+                padding: EdgeInsetsGeometry.symmetric(
+                  horizontal: AppConsts.horizentalPadding,
+                ),
+                child: CustomTableCalender(),
               ),
-              child: CustomTableCalender(),
             ),
-            SizedBox(height: 25),
-            Expanded(child: AppointmentSelection()),
+            SizedBox(height: 30),
+            Expanded(flex: 3, child: AppointmentSelection()),
           ],
         ),
       ),

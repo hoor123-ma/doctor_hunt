@@ -27,11 +27,10 @@ class FavouriteView extends StatelessWidget {
             Text(S.of(context).featuredDoctors, style: AppTextStyle.largeTitle),
             SizedBox(height: 5),
             FavouriteFeatureDoctors(),
-            SizedBox(height: 10),
+            SizedBox(height: 40),
           ],
         ),
       ),
     );
   }
 }
-
