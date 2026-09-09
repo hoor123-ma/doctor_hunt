@@ -20,5 +20,6 @@
   "slotsAvailable": "{count} slots available",
   "favouriteDoctor":"Favourite Doctors",
   "Dentist":"Dentist",
-  "featuredDoctors":"Featured Doctors"
+  "featuredDoctors":"Featured Doctors",
+  "Doctors":"Doctors"
 }

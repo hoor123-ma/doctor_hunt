@@ -2,6 +2,7 @@ import 'package:doctor_hunt/core/consts/app_consts.dart';
 import 'package:doctor_hunt/core/theme/app_colors.dart';
 import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/core/widgets/custom_search_field.dart';
+import 'package:doctor_hunt/core/widgets/profile_photo.dart';
 import 'package:doctor_hunt/features/auth/data/models/user_model.dart';
 import 'package:doctor_hunt/features/home/presentation/controller/upload_photo_cubit.dart';
 import 'package:flutter/material.dart';
@@ -66,61 +67,10 @@ class CustomHomeAppBar extends StatelessWidget {
                           ],
                         ),
                         Spacer(),
-                        GestureDetector(
-                          onTap: () {
-                            context.read<UploadPhotoCubit>().uplaodPhoto(
-                              AppConsts.usersCollection,
-                              user,
-                            );
-                          },
-                          child: state is UploadPhotoLoading
-                              ? Container(
-                                  width: 60,
-                                  height: 60,
-                                  decoration: BoxDecoration(
-                                    color: AppColors.greyColor.withValues(
-                                      alpha: .2,
-                                    ),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Center(
-                                    child: SizedBox(
-                                      width: 20,
-                                      height: 20,
-                                      child: CircularProgressIndicator(
-                                        color: AppColors.greyColor.withValues(
-                                          alpha: 0.2,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              : (currentUser.imageUrl == null ||
-                                    currentUser.imageUrl!.isEmpty)
-                              ? Container(
-                                  width: 60,
-                                  height: 60,
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.greyColor.withValues(
-                                      alpha: .2,
-                                    ),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: const Icon(
-                                    Icons.person,
-                                    size: 30,
-                                    color: AppColors.greyColor,
-                                  ),
-                                )
-                              : ClipOval(
-                                  child: Image.network(
-                                    currentUser.imageUrl!,
-                                    width: 60,
-                                    height: 60,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
+                        ProfilePhoto(
+                          user: user,
+                          currentUser: currentUser,
+                          state: state,
                         ),
                       ],
                     ),

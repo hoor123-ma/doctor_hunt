@@ -21,9 +21,9 @@ class SigninCubit extends Cubit<SigninState> {
     );
   }
 
-  Future<void> signInWithGoogle() async {
+  Future<void> signInWithGoogle(String role) async {
     emit(SigninLoading());
-    final result = await authRepo.signInWithGoogle();
+    final result = await authRepo.signInWithGoogle(role);
     result.fold(
       (error) {
         if (error.isCancelled) {

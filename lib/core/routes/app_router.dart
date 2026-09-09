@@ -1,6 +1,7 @@
 import 'package:doctor_hunt/core/routes/route_names.dart';
 import 'package:doctor_hunt/core/services/auth_service.dart';
 import 'package:doctor_hunt/core/utils/service_locator.dart';
+import 'package:doctor_hunt/features/admin_layout/presentation/admin_layout.dart';
 import 'package:doctor_hunt/features/auth/data/models/user_model.dart';
 import 'package:doctor_hunt/features/auth/data/repos/auth_repo_imp.dart';
 import 'package:doctor_hunt/features/auth/presentation/controller/resetpassword/resetpassword_cubit.dart';
@@ -16,7 +17,7 @@ import 'package:doctor_hunt/features/home/presentation/views/doctor_details.dart
 import 'package:doctor_hunt/features/home/presentation/views/home_view.dart';
 import 'package:doctor_hunt/features/main_layout/presentation/views/main_layout.dart';
 import 'package:doctor_hunt/features/on_boarding/presentation/views/on_boarding_view.dart';
-import 'package:doctor_hunt/features/on_boarding/presentation/views/role_selection_view.dart';
+import 'package:doctor_hunt/features/auth/presentation/views/role_selection_view.dart';
 import 'package:doctor_hunt/features/search/presentation/search_view.dart';
 import 'package:doctor_hunt/features/spalsh/presentation/views/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,19 +42,24 @@ class AppRouter {
         path: RouteNames.signInRoute,
         builder: (context, state) => BlocProvider(
           create: (context) => SigninCubit(authRepo: getIt<AuthRepoImp>()),
-          child: SignInView(),
+          child: SignInView(role: state.extra as String),
         ),
       ),
       GoRoute(
         path: RouteNames.signUpRoute,
         builder: (context, state) => BlocProvider(
           create: (context) => SignupCubit(authRepo: getIt<AuthRepoImp>()),
-          child: SignUpView(),
+          child: SignUpView(role: state.extra as String),
         ),
       ),
       GoRoute(
         path: RouteNames.mainLayoutRoute,
         builder: (context, state) => MainLayout(user: state.extra as UserModel),
+      ),
+      GoRoute(
+        path: RouteNames.adminLayoutRoute,
+        builder: (context, state) =>
+            AdminLayout(user: state.extra as UserModel),
       ),
       GoRoute(
         path: RouteNames.homeRoute,

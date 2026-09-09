@@ -49,6 +49,7 @@ class AuthRepoImp extends AuthRepo {
     String email,
     String pass,
     String name,
+    String role,
   ) async {
     try {
       final UserCredential credential = await authService
@@ -58,6 +59,7 @@ class AuthRepoImp extends AuthRepo {
         uid: credential.user!.uid,
         name: name,
         email: credential.user!.email!,
+        role: role,
       );
 
       await firestoreService.setDoc(
@@ -98,7 +100,7 @@ class AuthRepoImp extends AuthRepo {
   }
 
   @override
-  Future<Either<AuthError, UserModel>> signInWithGoogle() async {
+  Future<Either<AuthError, UserModel>> signInWithGoogle(String role) async {
     try {
       UserCredential userCredential = await authService.signInWithGoogle();
       final user = userCredential.user;
@@ -120,6 +122,7 @@ class AuthRepoImp extends AuthRepo {
         uid: user.uid,
         name: user.displayName ?? "",
         email: user.email ?? "",
+        role: role,
       );
 
       await firestoreService.setDoc(

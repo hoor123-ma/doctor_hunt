@@ -5,7 +5,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginWithFacebookAndGoogleButtons extends StatelessWidget {
-  const LoginWithFacebookAndGoogleButtons({super.key});
+  final String role;
+  const LoginWithFacebookAndGoogleButtons({super.key, required this.role});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class LoginWithFacebookAndGoogleButtons extends StatelessWidget {
         Expanded(
           child: GestureDetector(
             onTap: () {
-              BlocProvider.of<SigninCubit>(context).signInWithGoogle();
+              BlocProvider.of<SigninCubit>(context).signInWithGoogle(role);
             },
             child: Container(
               padding: EdgeInsets.all(20),

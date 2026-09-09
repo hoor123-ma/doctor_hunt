@@ -12,7 +12,8 @@ import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class SignUpView extends StatelessWidget {
-  const SignUpView({super.key});
+  final String role;
+  const SignUpView({super.key, required this.role});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,11 @@ class SignUpView extends StatelessWidget {
           );
         }
         if (state is SignUpSuccess) {
-          context.go(RouteNames.mainLayoutRoute, extra: state.user);
+          if (role == AppConsts.patientRole) {
+            context.go(RouteNames.mainLayoutRoute, extra: state.user);
+          } else {
+            context.go(RouteNames.adminLayoutRoute, extra: state.user);
+          }
         }
       },
       builder: (context, state) {
@@ -60,9 +65,9 @@ class SignUpView extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 50),
-                      LoginWithFacebookAndGoogleButtons(),
+                      LoginWithFacebookAndGoogleButtons(role: role),
                       SizedBox(height: 35),
-                      SignUpForm(),
+                      SignUpForm(role: role),
                       SizedBox(height: 20),
                       Center(
                         child: Row(

@@ -2,6 +2,7 @@ class RouteNames {
   static final String splashRoute = "/";
   static final String loginRoute = "/login";
   static final String mainLayoutRoute = "/mainLayout";
+  static final String adminLayoutRoute = "/adminLayout";
   static final String onBoardingRoute = "/on_boarding";
   static final String roleSelectionRoute = "/role_selection";
   static final String signInRoute = "/sign_In";

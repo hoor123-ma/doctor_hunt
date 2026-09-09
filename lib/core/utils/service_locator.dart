@@ -6,7 +6,7 @@ import 'package:doctor_hunt/core/services/fire_store_service.dart';
 import 'package:doctor_hunt/features/auth/data/repos/auth_repo_imp.dart';
 import 'package:doctor_hunt/features/home/data/repos/user_repo_imp.dart';
 import 'package:get_it/get_it.dart';
-import 'package:image_picker/image_picker.dart';
+
 
 GetIt getIt = GetIt.instance;
 Future<void> setUpServiceLocator() async {

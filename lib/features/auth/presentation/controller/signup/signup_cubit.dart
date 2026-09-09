@@ -6,9 +6,14 @@ part 'signup_state.dart';
 class SignupCubit extends Cubit<SignUpState> {
   final AuthRepo authRepo;
   SignupCubit({required this.authRepo}) : super(SignUpInitial());
-  Future<void> signUp(String name, String email, String password) async {
+  Future<void> signUp(
+    String name,
+    String email,
+    String password,
+    String role,
+  ) async {
     emit(SignUpLoading());
-    final result = await authRepo.signUp(email, password, name);
+    final result = await authRepo.signUp(email, password, name, role);
     result.fold(
       (error) {
         emit(SignUpFailure(errorMesssage: error.errorMsg));

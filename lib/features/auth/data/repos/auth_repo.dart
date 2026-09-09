@@ -7,7 +7,7 @@ abstract class AuthRepo {
     String email,
     String pass,
   );
-  Future<Either<AuthError, UserModel>> signInWithGoogle();
+  Future<Either<AuthError, UserModel>> signInWithGoogle(String role);
 
   Future<Either<AuthError, UserModel>> signUp(
     String email,
@@ -15,6 +15,7 @@ abstract class AuthRepo {
     String pass,
 
     String name,
+    String role,
   );
 
   Future<void> signOut();

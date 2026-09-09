@@ -76,7 +76,10 @@ class _RoleSelectionViewState extends State<RoleSelectionView> {
                 SizedBox(height: 20),
                 CustomButton(
                   onTap: () {
-                    context.go(RouteNames.signInRoute);
+                    context.go(
+                      RouteNames.signInRoute,
+                      extra: isPatient ? AppConsts.patientRole : AppConsts.adminRole,
+                    );
                   },
                   title: "Continue",
                 ),

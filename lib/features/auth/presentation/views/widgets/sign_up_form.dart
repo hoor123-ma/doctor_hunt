@@ -12,7 +12,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class SignUpForm extends StatefulWidget {
-  const SignUpForm({super.key});
+  final String role;
+  const SignUpForm({super.key, required this.role});
 
   @override
   State<SignUpForm> createState() => _SignUpFormState();
@@ -83,6 +84,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   nameController.text,
                   emailController.text,
                   passwordController.text,
+                  widget.role,
                 );
               }
             },
