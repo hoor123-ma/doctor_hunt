@@ -13,4 +13,5 @@ class RouteNames {
   static final String timeSelectionRoute = "/time_selection";
   static final String appointmentRoute = "/appointment";
   static final String favouriteRoute = "/favourite";
+  static final String createDoctorRoute = "/create_doctor";
 }

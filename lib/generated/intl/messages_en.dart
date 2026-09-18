@@ -33,8 +33,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "Active": MessageLookupByLibrary.simpleMessage("Active"),
     "Dentist": MessageLookupByLibrary.simpleMessage("Dentist"),
     "Doctors": MessageLookupByLibrary.simpleMessage("Doctors"),
+    "Inactive": MessageLookupByLibrary.simpleMessage("Inactive"),
+    "addPhoto": MessageLookupByLibrary.simpleMessage("Add Photo"),
     "afternoonSlots": m0,
     "appointment": MessageLookupByLibrary.simpleMessage("Appointment"),
     "appointmentDetails": m1,
@@ -45,6 +48,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
     "contactClinic": MessageLookupByLibrary.simpleMessage("Contact Clinic"),
     "continueButton": MessageLookupByLibrary.simpleMessage("Continue"),
+    "createDoctor": MessageLookupByLibrary.simpleMessage("Create Doctor"),
+    "doctorName": MessageLookupByLibrary.simpleMessage("Doctor Name"),
+    "doctorSpeciality": MessageLookupByLibrary.simpleMessage(
+      "Doctor Speciality",
+    ),
     "done": MessageLookupByLibrary.simpleMessage("Done"),
     "editYourAppointment": MessageLookupByLibrary.simpleMessage(
       "Edit your appointment",

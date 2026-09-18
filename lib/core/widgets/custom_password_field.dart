@@ -70,7 +70,7 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
             filled: true,
 
             hintText: widget.hintText,
-            hintStyle: AppTextStyle.subTitle,
+            hintStyle: AppTextStyle.regular14,
           ),
         ),
       ],

@@ -1,20 +1,22 @@
 import 'package:doctor_hunt/core/consts/app_consts.dart';
 import 'package:doctor_hunt/core/routes/app_router.dart';
-import 'package:doctor_hunt/core/services/auth_service.dart';
-import 'package:doctor_hunt/core/utils/service_locator.dart';
+import 'package:doctor_hunt/features/common/auth/data/services/auth_service.dart';
+import 'package:doctor_hunt/service_locator.dart';
 import 'package:doctor_hunt/firebase_options.dart';
 import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await AuthService().initializeGoogleSignIn();
   await setUpServiceLocator();
   getIt<AuthService>().initializeGoogleSignIn();
+  //await dotenv.load(fileName: '.env');
+ // dotenv.env['token'];
   runApp(const MyApp());
 }
 

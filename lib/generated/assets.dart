@@ -2,6 +2,9 @@
 class Assets {
   Assets._();
 
+  static const String assetsImagesButtonNotifications =
+      "assets/images/Button - Notifications.svg";
+
   static const String assetsImagesCategory1 = "assets/images/category1.svg";
 
   static const String assetsImagesCategory2 = "assets/images/category2.svg";
@@ -31,7 +34,10 @@ class Assets {
   static const String assetsImagesGoogleLogo = "assets/images/google_logo.svg";
 
   static const String assetsImagesMedicalIcon =
-      "assets/images/Medical Icon.svg";
+      "assets/images/Medical_Icon.svg";
+
+  static const String assetsImagesNoDoctorsMedicalIcon =
+      "assets/images/no_doctors_medical_Icon.svg";
 
   static const String assetsImagesOnboarding1 = "assets/images/onboarding1.png";
 

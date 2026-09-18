@@ -1,4 +1,3 @@
-import 'package:doctor_hunt/core/consts/app_consts.dart';
 import 'package:doctor_hunt/core/routes/route_names.dart';
 import 'package:doctor_hunt/core/theme/app_colors.dart';
 import 'package:doctor_hunt/core/theme/app_text_style.dart';
@@ -13,7 +12,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      minimum: EdgeInsets.only(top: 32),
+      minimum: const EdgeInsets.only(top: 32),
 
       child: Row(
         mainAxisAlignment: showSearchIcon
@@ -25,31 +24,34 @@ class CustomAppBar extends StatelessWidget {
               context.pop();
             },
             child: Container(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Icon(
-                Icons.arrow_back_ios,
-                color: AppColors.greyColor,
-                size: 20,
+              child: const Padding(
+                padding: EdgeInsets.only(left: 4),
+                child: Icon(
+                  Icons.arrow_back_ios,
+                  color: AppColors.greyColor,
+                  size: 20,
+                ),
               ),
             ),
           ),
-          if (title!.isNotEmpty)
+          if (title.isNotEmpty)
             Padding(
               padding: showSearchIcon
                   ? EdgeInsetsGeometry.zero
-                  : EdgeInsetsGeometry.only(left: 20),
-              child: Text(title, style: AppTextStyle.largeTitle),
+                  : const EdgeInsetsGeometry.only(left: 20),
+              child: Text(title, style: AppTextStyle.medium18),
             ),
           if (showSearchIcon)
             IconButton(
               onPressed: () {
                 context.push(RouteNames.searchRoute);
               },
-              icon: Icon(Icons.search, color: AppColors.greyColor),
+              icon: const Icon(Icons.search, color: AppColors.greyColor),
             ),
         ],
       ),

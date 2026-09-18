@@ -1,7 +1,7 @@
 import 'package:doctor_hunt/core/consts/app_consts.dart';
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/features/auth/data/models/user_model.dart';
-import 'package:doctor_hunt/features/home/presentation/controller/upload_photo_cubit.dart';
+import 'package:doctor_hunt/features/common/auth/data/models/user_model.dart';
+import 'package:doctor_hunt/features/doctor/home/presentation/controller/upload_photo_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,7 +25,7 @@ class ProfilePhoto extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.read<UploadPhotoCubit>().uplaodPhoto(
+        context.read<UploadPatientPhotoCubit>().uplaodPhoto(
           AppConsts.usersCollection,
           user,
         );

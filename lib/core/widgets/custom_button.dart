@@ -16,7 +16,7 @@ class CustomButton extends StatelessWidget {
     required this.title,
     this.backgroundColor = AppColors.primaryColor,
     this.borderColor,
-    this.titleColor = AppColors.background,
+    this.titleColor = AppColors.whiteColor
   });
 
   @override
@@ -34,7 +34,7 @@ class CustomButton extends StatelessWidget {
         child: Center(
           child: Text(
             title,
-            style: AppTextStyle.largeTitle.copyWith(color: titleColor),
+            style: AppTextStyle.medium18.copyWith(color: titleColor),
           ),
         ),
       ),

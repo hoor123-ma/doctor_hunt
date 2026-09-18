@@ -21,5 +21,16 @@
   "favouriteDoctor":"Favourite Doctors",
   "Dentist":"Dentist",
   "featuredDoctors":"Featured Doctors",
-  "Doctors":"Doctors"
+  "Doctors":"Doctors",
+  "createDoctor":"Create Doctor",
+  "doctorName":"Doctor Name",
+  "doctorSpeciality":"Doctor Speciality",
+  "addPhoto":"Add Photo",
+  "e.g.Dr.Ahmed Ali":"e.g. Dr. Ahmed Ali",
+  "Medical Specialty":"Medical Specialty",
+  "e.g.Dentist":"e.g. Dentist",
+  "Create Doctor":"Create Doctor",
+  "Doctor Created Successfully":"Doctor Created Successfully",
+  "Active":"Active",
+  "Inactive":"Inactive"
 }

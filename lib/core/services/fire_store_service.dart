@@ -21,18 +21,7 @@ class FirestoreService {
         .get();
   }
 
-  Future<QuerySnapshot<Map<String, dynamic>>> getCollectionBetweenDates(
-    String collectionName,
-    String field,
-    DateTime startDate,
-    DateTime endDate,
-  ) async {
-    return await firestore
-        .collection(collectionName)
-        .where(field, isGreaterThanOrEqualTo: Timestamp.fromDate(startDate))
-        .where(field, isLessThan: Timestamp.fromDate(endDate))
-        .get();
-  }
+
 
   Future<void> setDoc(
     String collectionName,

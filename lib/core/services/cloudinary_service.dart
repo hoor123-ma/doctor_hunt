@@ -15,6 +15,7 @@ class CloudinaryService {
   Future<String?> uploadPhoto() async {
     final XFile? pickedFile = await imagePicker.pickImage(
       source: ImageSource.gallery,
+      imageQuality: 90
     );
 
     if (pickedFile == null) return null;

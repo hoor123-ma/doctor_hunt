@@ -234,6 +234,56 @@ class S {
   String get Doctors {
     return Intl.message('Doctors', name: 'Doctors', desc: '', args: []);
   }
+
+  /// `Create Doctor`
+  String get createDoctor {
+    return Intl.message(
+      'Create Doctor',
+      name: 'createDoctor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Doctor Name`
+  String get doctorName {
+    return Intl.message('Doctor Name', name: 'doctorName', desc: '', args: []);
+  }
+
+  /// `Doctor Speciality`
+  String get doctorSpeciality {
+    return Intl.message(
+      'Doctor Speciality',
+      name: 'doctorSpeciality',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Photo`
+  String get addPhoto {
+    return Intl.message('Add Photo', name: 'addPhoto', desc: '', args: []);
+  }
+
+  // skipped getter for the 'e.g.Dr.Ahmed Ali' key
+
+  // skipped getter for the 'Medical Specialty' key
+
+  // skipped getter for the 'e.g.Dentist' key
+
+  // skipped getter for the 'Create Doctor' key
+
+  // skipped getter for the 'Doctor Created Successfully' key
+
+  /// `Active`
+  String get Active {
+    return Intl.message('Active', name: 'Active', desc: '', args: []);
+  }
+
+  /// `Inactive`
+  String get Inactive {
+    return Intl.message('Inactive', name: 'Inactive', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

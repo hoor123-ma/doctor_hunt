@@ -1,25 +1,27 @@
 import 'package:doctor_hunt/core/routes/route_names.dart';
-import 'package:doctor_hunt/core/services/auth_service.dart';
-import 'package:doctor_hunt/core/utils/service_locator.dart';
-import 'package:doctor_hunt/features/admin_layout/presentation/admin_layout.dart';
-import 'package:doctor_hunt/features/auth/data/models/user_model.dart';
-import 'package:doctor_hunt/features/auth/data/repos/auth_repo_imp.dart';
-import 'package:doctor_hunt/features/auth/presentation/controller/resetpassword/resetpassword_cubit.dart';
-import 'package:doctor_hunt/features/auth/presentation/controller/signin/signin_cubit.dart';
-import 'package:doctor_hunt/features/auth/presentation/controller/signup/signup_cubit.dart';
-import 'package:doctor_hunt/features/auth/presentation/views/login_view.dart';
-import 'package:doctor_hunt/features/auth/presentation/views/sign_up_view.dart';
-import 'package:doctor_hunt/features/appointment/presentation/views/appointment_view.dart';
-import 'package:doctor_hunt/features/appointment/presentation/views/time_selection_view.dart';
-import 'package:doctor_hunt/features/favourite/presentation/views/favourite_view.dart';
-import 'package:doctor_hunt/features/home/data/models/doctor_model.dart';
-import 'package:doctor_hunt/features/home/presentation/views/doctor_details.dart';
-import 'package:doctor_hunt/features/home/presentation/views/home_view.dart';
-import 'package:doctor_hunt/features/main_layout/presentation/views/main_layout.dart';
-import 'package:doctor_hunt/features/on_boarding/presentation/views/on_boarding_view.dart';
-import 'package:doctor_hunt/features/auth/presentation/views/role_selection_view.dart';
-import 'package:doctor_hunt/features/search/presentation/search_view.dart';
-import 'package:doctor_hunt/features/spalsh/presentation/views/splash_view.dart';
+import 'package:doctor_hunt/core/services/shared_prefrence_services.dart';
+import 'package:doctor_hunt/features/admin/doctors/create_doctor/presentation/create_doctor_view.dart';
+import 'package:doctor_hunt/features/common/auth/data/services/auth_service.dart';
+import 'package:doctor_hunt/service_locator.dart';
+import 'package:doctor_hunt/features/admin/admin_layout/presentation/admin_layout.dart';
+import 'package:doctor_hunt/features/common/auth/data/models/user_model.dart';
+import 'package:doctor_hunt/features/common/auth/data/repos/auth_repo_imp.dart';
+import 'package:doctor_hunt/features/common/auth/presentation/controller/resetpassword/resetpassword_cubit.dart';
+import 'package:doctor_hunt/features/common/auth/presentation/controller/signin/signin_cubit.dart';
+import 'package:doctor_hunt/features/common/auth/presentation/controller/signup/signup_cubit.dart';
+import 'package:doctor_hunt/features/common/auth/presentation/views/login_view.dart';
+import 'package:doctor_hunt/features/common/auth/presentation/views/sign_up_view.dart';
+import 'package:doctor_hunt/features/doctor/appointment/presentation/views/appointment_view.dart';
+import 'package:doctor_hunt/features/doctor/appointment/presentation/views/time_selection_view.dart';
+import 'package:doctor_hunt/features/doctor/favourite/presentation/views/favourite_view.dart';
+import 'package:doctor_hunt/features/doctor/home/data/models/doctor_model.dart';
+import 'package:doctor_hunt/features/doctor/home/presentation/views/doctor_details.dart';
+import 'package:doctor_hunt/features/doctor/home/presentation/views/home_view.dart';
+import 'package:doctor_hunt/features/doctor/main_layout/presentation/views/main_layout.dart';
+import 'package:doctor_hunt/features/common/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:doctor_hunt/features/common/auth/presentation/views/role_selection_view.dart';
+import 'package:doctor_hunt/features/doctor/search/presentation/search_view.dart';
+import 'package:doctor_hunt/features/common/spalsh/presentation/views/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -28,15 +30,15 @@ class AppRouter {
     routes: [
       GoRoute(
         path: RouteNames.splashRoute,
-        builder: (context, state) => SplashView(),
+        builder: (context, state) => const SplashView(),
       ),
       GoRoute(
         path: RouteNames.onBoardingRoute,
-        builder: (context, state) => OnBoardingView(),
+        builder: (context, state) => const OnBoardingView(),
       ),
       GoRoute(
         path: RouteNames.roleSelectionRoute,
-        builder: (context, state) => RoleSelectionView(),
+        builder: (context, state) => const RoleSelectionView(),
       ),
       GoRoute(
         path: RouteNames.signInRoute,
@@ -74,7 +76,7 @@ class AppRouter {
       GoRoute(
         path: RouteNames.searchRoute,
 
-        builder: (context, state) => SearchView(),
+        builder: (context, state) => const SearchView(),
       ),
       GoRoute(
         path: RouteNames.timeSelectionRoute,
@@ -85,12 +87,17 @@ class AppRouter {
       GoRoute(
         path: RouteNames.appointmentRoute,
 
-        builder: (context, state) => AppointmentView(),
+        builder: (context, state) => const AppointmentView(),
       ),
       GoRoute(
         path: RouteNames.favouriteRoute,
 
-        builder: (context, state) => FavouriteView(),
+        builder: (context, state) => const FavouriteView(),
+      ),
+      GoRoute(
+        path: RouteNames.createDoctorRoute,
+
+        builder: (context, state) => const CreateDoctorView(),
       ),
     ],
   );
