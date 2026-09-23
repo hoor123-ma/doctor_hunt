@@ -1,4 +1,5 @@
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 
 class SummaryCard extends StatelessWidget {
@@ -12,43 +13,43 @@ class SummaryCard extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
               decoration: BoxDecoration(
                 color: Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
                 children: [
-                  Text("100", style: AppTextStyle.medium18),
-                  Text("Running", style: AppTextStyle.regular14),
+                  Text("100", style: context.medium18),
+                  Text(S.of(context).running, style: context.regular14),
                 ],
               ),
             ),
-            SizedBox(width: 6),
+            const SizedBox(width: 6),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
               decoration: BoxDecoration(
                 color: Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
                 children: [
-                  Text("500", style: AppTextStyle.medium18),
-                  Text("On going", style: AppTextStyle.regular14),
+                  Text("500", style: context.medium18),
+                  Text(S.of(context).onGoing, style: context.regular14),
                 ],
               ),
             ),
-            SizedBox(width: 6),
+            const SizedBox(width: 6),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
               decoration: BoxDecoration(
                 color: Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
                 children: [
-                  Text("700", style: AppTextStyle.medium18),
-                  Text("Patient", style: AppTextStyle.regular14),
+                  Text("700", style: context.medium18),
+                  Text(S.of(context).patient, style: context.regular14),
                 ],
               ),
             ),

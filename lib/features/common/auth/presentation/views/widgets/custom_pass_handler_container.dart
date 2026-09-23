@@ -1,8 +1,10 @@
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
+import 'package:doctor_hunt/core/theme/app_colors.dart';
 import 'package:doctor_hunt/core/utils/functions/validations/password_validator.dart';
 import 'package:doctor_hunt/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/core/widgets/custom_password_field.dart';
 import 'package:doctor_hunt/core/widgets/custom_text_form_field.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 
 class CustomPasswordHandlerContainer extends StatefulWidget {
@@ -45,12 +47,12 @@ class _CustomPasswordHandlerContainerState
     return Form(
       key: _formKey,
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20),
             topRight: Radius.circular(20),
           ),
-          color: Colors.white,
+          color: AppColors.white,
         ),
 
         child: Padding(
@@ -68,29 +70,29 @@ class _CustomPasswordHandlerContainerState
                 Center(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade400,
+                      color: AppColors.grey400,
                       borderRadius: BorderRadius.circular(30),
                     ),
                     height: 5,
                     width: MediaQuery.of(context).size.width * .4,
                   ),
                 ),
-                SizedBox(height: 30),
-                Text(widget.titel, style: AppTextStyle.medium28),
-                SizedBox(height: 10),
-                Text(widget.subtitel, style: AppTextStyle.regular14),
-                SizedBox(height: 20),
+                const SizedBox(height: 30),
+                Text(widget.titel, style: context.medium28),
+                const SizedBox(height: 10),
+                Text(widget.subtitel, style: context.regular14),
+                const SizedBox(height: 20),
                 if (widget.isPasswordField)
                   Column(
                     children: [
                       CustomPasswordField(
-                        hintText: "New Password",
+                        hintText: S.of(context).newPassword,
                         validator: validatePassword,
                         controller: textFieldController,
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       CustomPasswordField(
-                        hintText: "Re-enter Password",
+                        hintText: S.of(context).reEnterPassword,
                         validator: (value) {
                           return matchingPasswordValidator(
                             value,
@@ -106,7 +108,7 @@ class _CustomPasswordHandlerContainerState
                     hintText: widget.textFieldTitle ?? "",
                     validator: widget.textFieldValidator,
                   ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 CustomButton(
                   onTap: () {
                     if (_formKey.currentState!.validate()) {

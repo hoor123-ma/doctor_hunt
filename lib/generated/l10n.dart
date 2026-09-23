@@ -216,8 +216,8 @@ class S {
   }
 
   /// `Dentist`
-  String get Dentist {
-    return Intl.message('Dentist', name: 'Dentist', desc: '', args: []);
+  String get dentist {
+    return Intl.message('Dentist', name: 'dentist', desc: '', args: []);
   }
 
   /// `Featured Doctors`
@@ -231,8 +231,8 @@ class S {
   }
 
   /// `Doctors`
-  String get Doctors {
-    return Intl.message('Doctors', name: 'Doctors', desc: '', args: []);
+  String get doctors {
+    return Intl.message('Doctors', name: 'doctors', desc: '', args: []);
   }
 
   /// `Create Doctor`
@@ -265,24 +265,754 @@ class S {
     return Intl.message('Add Photo', name: 'addPhoto', desc: '', args: []);
   }
 
-  // skipped getter for the 'e.g.Dr.Ahmed Ali' key
+  /// `e.g. Dr. Ahmed Ali`
+  String get doctorNameHint {
+    return Intl.message(
+      'e.g. Dr. Ahmed Ali',
+      name: 'doctorNameHint',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'Medical Specialty' key
+  /// `Medical Specialty`
+  String get medicalSpecialty {
+    return Intl.message(
+      'Medical Specialty',
+      name: 'medicalSpecialty',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'e.g.Dentist' key
+  /// `e.g. Dentist`
+  String get specialtyHint {
+    return Intl.message(
+      'e.g. Dentist',
+      name: 'specialtyHint',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'Create Doctor' key
+  /// `Create Doctor`
+  String get createDoctorButton {
+    return Intl.message(
+      'Create Doctor',
+      name: 'createDoctorButton',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'Doctor Created Successfully' key
+  /// `Doctor Created Successfully`
+  String get doctorCreatedSuccessfully {
+    return Intl.message(
+      'Doctor Created Successfully',
+      name: 'doctorCreatedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Active`
-  String get Active {
-    return Intl.message('Active', name: 'Active', desc: '', args: []);
+  String get active {
+    return Intl.message('Active', name: 'active', desc: '', args: []);
   }
 
   /// `Inactive`
-  String get Inactive {
-    return Intl.message('Inactive', name: 'Inactive', desc: '', args: []);
+  String get inactive {
+    return Intl.message('Inactive', name: 'inactive', desc: '', args: []);
+  }
+
+  /// `Doctor's photo must be added`
+  String get doctorPhotoMustBeAdded {
+    return Intl.message(
+      'Doctor\'s photo must be added',
+      name: 'doctorPhotoMustBeAdded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search doctors...`
+  String get searchDoctors {
+    return Intl.message(
+      'Search doctors...',
+      name: 'searchDoctors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Doctors Found`
+  String get noDoctorsFound {
+    return Intl.message(
+      'No Doctors Found',
+      name: 'noDoctorsFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There are currently no doctors registered on Doctor Hunt. Add your first doctor to get started.`
+  String get noDoctorsRegistered {
+    return Intl.message(
+      'There are currently no doctors registered on Doctor Hunt. Add your first doctor to get started.',
+      name: 'noDoctorsRegistered',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Active Doctors`
+  String get activeDoctors {
+    return Intl.message(
+      'Active Doctors',
+      name: 'activeDoctors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Doctors`
+  String get totalDoctors {
+    return Intl.message(
+      'Total Doctors',
+      name: 'totalDoctors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message('Settings', name: 'settings', desc: '', args: []);
+  }
+
+  /// `Doctor Details`
+  String get doctorDetails {
+    return Intl.message(
+      'Doctor Details',
+      name: 'doctorDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap photo to change`
+  String get tapPhotoToChange {
+    return Intl.message(
+      'Tap photo to change',
+      name: 'tapPhotoToChange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Doctor`
+  String get editDoctor {
+    return Intl.message('Edit Doctor', name: 'editDoctor', desc: '', args: []);
+  }
+
+  /// `Save Changes`
+  String get saveChanges {
+    return Intl.message(
+      'Save Changes',
+      name: 'saveChanges',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update Doctor`
+  String get updateDoctorButton {
+    return Intl.message(
+      'Update Doctor',
+      name: 'updateDoctorButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Doctor Updated Successfully`
+  String get doctorUpdatedSuccessfully {
+    return Intl.message(
+      'Doctor Updated Successfully',
+      name: 'doctorUpdatedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Doctor`
+  String get deleteDoctor {
+    return Intl.message(
+      'Delete Doctor',
+      name: 'deleteDoctor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this doctor?`
+  String get areYouSureYouWantToDeleteThisDoctor {
+    return Intl.message(
+      'Are you sure you want to delete this doctor?',
+      name: 'areYouSureYouWantToDeleteThisDoctor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes, Delete`
+  String get yesDelete {
+    return Intl.message('Yes, Delete', name: 'yesDelete', desc: '', args: []);
+  }
+
+  /// `No, Cancel`
+  String get noCancel {
+    return Intl.message('No, Cancel', name: 'noCancel', desc: '', args: []);
+  }
+
+  /// `Doctor Status`
+  String get doctorStatus {
+    return Intl.message(
+      'Doctor Status',
+      name: 'doctorStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Active & Available`
+  String get active_Available {
+    return Intl.message(
+      'Active & Available',
+      name: 'active_Available',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Find Doctors`
+  String get findDoctors {
+    return Intl.message(
+      'Find Doctors',
+      name: 'findDoctors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{count} Years experience`
+  String yearsExperience(Object count) {
+    return Intl.message(
+      '$count Years experience',
+      name: 'yearsExperience',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `{count} Patient Stories`
+  String patientStories(Object count) {
+    return Intl.message(
+      '$count Patient Stories',
+      name: 'patientStories',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `{count}% Positive Reviews`
+  String positiveReviews(Object count) {
+    return Intl.message(
+      '$count% Positive Reviews',
+      name: 'positiveReviews',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Next Available`
+  String get nextAvailable {
+    return Intl.message(
+      'Next Available',
+      name: 'nextAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book now`
+  String get bookNow {
+    return Intl.message('Book now', name: 'bookNow', desc: '', args: []);
+  }
+
+  /// `Live Doctors`
+  String get liveDoctors {
+    return Intl.message(
+      'Live Doctors',
+      name: 'liveDoctors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Popular Doctors`
+  String get popularDoctors {
+    return Intl.message(
+      'Popular Doctors',
+      name: 'popularDoctors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See all`
+  String get seeAll {
+    return Intl.message('See all', name: 'seeAll', desc: '', args: []);
+  }
+
+  /// `Feature Doctor`
+  String get featureDoctor {
+    return Intl.message(
+      'Feature Doctor',
+      name: 'featureDoctor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Patient`
+  String get patient {
+    return Intl.message('Patient', name: 'patient', desc: '', args: []);
+  }
+
+  /// `Doctor`
+  String get doctor {
+    return Intl.message('Doctor', name: 'doctor', desc: '', args: []);
+  }
+
+  /// `On going`
+  String get onGoing {
+    return Intl.message('On going', name: 'onGoing', desc: '', args: []);
+  }
+
+  /// `Running`
+  String get running {
+    return Intl.message('Running', name: 'running', desc: '', args: []);
+  }
+
+  /// `Services`
+  String get services {
+    return Intl.message('Services', name: 'services', desc: '', args: []);
+  }
+
+  /// ` Patient care should be the number one priority.`
+  String get patientCare {
+    return Intl.message(
+      ' Patient care should be the number one priority.',
+      name: 'patientCare',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If you run your practiceyou know how frustrating.`
+  String get frustrating {
+    return Intl.message(
+      'If you run your practiceyou know how frustrating.',
+      name: 'frustrating',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `That’s why some of appointment reminder system.`
+  String get appointmentReminder {
+    return Intl.message(
+      'That’s why some of appointment reminder system.',
+      name: 'appointmentReminder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `LIVE`
+  String get live {
+    return Intl.message('LIVE', name: 'live', desc: '', args: []);
+  }
+
+  /// `Find Your Doctor`
+  String get findYourDoctor {
+    return Intl.message(
+      'Find Your Doctor',
+      name: 'findYourDoctor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search..... `
+  String get searchHint {
+    return Intl.message('Search..... ', name: 'searchHint', desc: '', args: []);
+  }
+
+  /// `Hi {userName}!`
+  String welcomeMessage(Object userName) {
+    return Intl.message(
+      'Hi $userName!',
+      name: 'welcomeMessage',
+      desc: '',
+      args: [userName],
+    );
+  }
+
+  /// `Doctor Hunt`
+  String get appName {
+    return Intl.message('Doctor Hunt', name: 'appName', desc: '', args: []);
+  }
+
+  /// `Find Trusted Doctors`
+  String get onBoardingTitle1 {
+    return Intl.message(
+      'Find Trusted Doctors',
+      name: 'onBoardingTitle1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Find trusted doctors and specialists near you with just a few taps.`
+  String get onBoardingSubTitle1 {
+    return Intl.message(
+      'Find trusted doctors and specialists near you with just a few taps.',
+      name: 'onBoardingSubTitle1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose the Best Doctor`
+  String get onBoardingTitle2 {
+    return Intl.message(
+      'Choose the Best Doctor',
+      name: 'onBoardingTitle2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Explore specialties, ratings, and patient reviews to find the right doctor for you.`
+  String get onBoardingSubTitle2 {
+    return Intl.message(
+      'Explore specialties, ratings, and patient reviews to find the right doctor for you.',
+      name: 'onBoardingSubTitle2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book Your Appointment`
+  String get onBoardingTitle3 {
+    return Intl.message(
+      'Book Your Appointment',
+      name: 'onBoardingTitle3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose your preferred time and book your appointment quickly and easily.`
+  String get onBoardingSubTitle3 {
+    return Intl.message(
+      'Choose your preferred time and book your appointment quickly and easily.',
+      name: 'onBoardingSubTitle3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Started`
+  String get getStarted {
+    return Intl.message('Get Started', name: 'getStarted', desc: '', args: []);
+  }
+
+  /// `Skip`
+  String get skip {
+    return Intl.message('Skip', name: 'skip', desc: '', args: []);
+  }
+
+  /// `Welcome back`
+  String get welcomeBack {
+    return Intl.message(
+      'Welcome back',
+      name: 'welcomeBack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can search course, apply course and find scholarship for abroad studies`
+  String get youCanSearchCourse {
+    return Intl.message(
+      'You can search course, apply course and find scholarship for abroad studies',
+      name: 'youCanSearchCourse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don’t have an account? `
+  String get haveAnAccount {
+    return Intl.message(
+      'Don’t have an account? ',
+      name: 'haveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Join us`
+  String get joinUs {
+    return Intl.message('Join us', name: 'joinUs', desc: '', args: []);
+  }
+
+  /// `Choose your role`
+  String get chooseYourRole {
+    return Intl.message(
+      'Choose your role',
+      name: 'chooseYourRole',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The selected role determines the experience and available features.`
+  String get roleSelectionTitle {
+    return Intl.message(
+      'The selected role determines the experience and available features.',
+      name: 'roleSelectionTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Find doctors, book\nappointments,\nand manage your medical\nrecords.`
+  String get roleSelectionSubtitle {
+    return Intl.message(
+      'Find doctors, book\nappointments,\nand manage your medical\nrecords.',
+      name: 'roleSelectionSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Admin`
+  String get admin {
+    return Intl.message('Admin', name: 'admin', desc: '', args: []);
+  }
+
+  /// `Manage doctors, appointments,\nusers, and the platform.`
+  String get adminDescription {
+    return Intl.message(
+      'Manage doctors, appointments,\nusers, and the platform.',
+      name: 'adminDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Join us to start searching`
+  String get signUpTitle {
+    return Intl.message(
+      'Join us to start searching',
+      name: 'signUpTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can search course, apply course and find scholarship for abroad studies`
+  String get signUpSubTitle {
+    return Intl.message(
+      'You can search course, apply course and find scholarship for abroad studies',
+      name: 'signUpSubTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account?`
+  String get alreadyHaveAnAccount {
+    return Intl.message(
+      'Already have an account?',
+      name: 'alreadyHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log in`
+  String get logIn {
+    return Intl.message('Log in', name: 'logIn', desc: '', args: []);
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message('Name', name: 'name', desc: '', args: []);
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
+  }
+
+  /// `Confirm Password`
+  String get confirmPassword {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I agree with the Terms of Service & Privacy Policy`
+  String get termsAndPrivacy {
+    return Intl.message(
+      'I agree with the Terms of Service & Privacy Policy',
+      name: 'termsAndPrivacy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up`
+  String get signUp {
+    return Intl.message('Sign up', name: 'signUp', desc: '', args: []);
+  }
+
+  /// `Google`
+  String get google {
+    return Intl.message('Google', name: 'google', desc: '', args: []);
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message('Login', name: 'login', desc: '', args: []);
+  }
+
+  /// `Forgot password?`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot password?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password reset code sent successfully`
+  String get passwordResetCodeSent {
+    return Intl.message(
+      'Password reset code sent successfully',
+      name: 'passwordResetCodeSent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password`
+  String get forgotPasswordTitle {
+    return Intl.message(
+      'Forgot Password',
+      name: 'forgotPasswordTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email for the verification process`
+  String get enterEmail {
+    return Intl.message(
+      'Enter your email for the verification process',
+      name: 'enterEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send`
+  String get send {
+    return Intl.message('Send', name: 'send', desc: '', args: []);
+  }
+
+  /// `New Password`
+  String get newPassword {
+    return Intl.message(
+      'New Password',
+      name: 'newPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Re-enter Password`
+  String get reEnterPassword {
+    return Intl.message(
+      'Re-enter Password',
+      name: 'reEnterPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Speciality`
+  String get speciality {
+    return Intl.message('Speciality', name: 'speciality', desc: '', args: []);
+  }
+
+  /// `Account Status`
+  String get accountStatus {
+    return Intl.message(
+      'Account Status',
+      name: 'accountStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Doctor`
+  String get addDoctor {
+    return Intl.message('Add Doctor', name: 'addDoctor', desc: '', args: []);
+  }
+
+  /// `Are you sure you want to delete this doctor?`
+  String get deleteDoctorDialogContent {
+    return Intl.message(
+      'Are you sure you want to delete this doctor?',
+      name: 'deleteDoctorDialogContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message('Delete', name: 'delete', desc: '', args: []);
   }
 }
 

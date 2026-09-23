@@ -5,26 +5,26 @@ import 'package:flutter/material.dart';
 
 class PopularDoctorsSection extends StatelessWidget {
   const PopularDoctorsSection({super.key});
-  final List<DoctorModel> doctors = const [
-    DoctorModel(
+  final List<PatientDoctorModel> doctors = const [
+    PatientDoctorModel(
       imageUrl: Assets.assetsImagesPopularDoctor1,
       name: "Dr. Fillerup Grab",
       title: "Medicine Specialist",
       rating: 4,
     ),
-    DoctorModel(
+    PatientDoctorModel(
       imageUrl: Assets.assetsImagesPopularDoctor2,
       name: "Dr. Blessing",
       title: "Dentist Specialist",
       rating: 3,
     ),
-    DoctorModel(
+    PatientDoctorModel(
       imageUrl: Assets.assetsImagesPopularDoctor1,
       name: "Dr. Fillerup Grab",
       title: "Medicine Specialist",
       rating: 2,
     ),
-    DoctorModel(
+    PatientDoctorModel(
       imageUrl: Assets.assetsImagesPopularDoctor2,
       name: "Dr. Blessing",
       title: "Dentist Specialist",

@@ -1,11 +1,12 @@
 import 'package:doctor_hunt/core/consts/app_consts.dart';
 import 'package:doctor_hunt/core/routes/route_names.dart';
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/core/widgets/gradient_background.dart';
 import 'package:doctor_hunt/features/common/auth/presentation/controller/signup/signup_cubit.dart';
 import 'package:doctor_hunt/features/common/auth/presentation/views/widgets/login_in_with_facebook_and_google_button.dart';
 import 'package:doctor_hunt/features/common/auth/presentation/views/widgets/sign_up_form.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -22,10 +23,10 @@ class SignUpView extends StatelessWidget {
         if (state is SignUpFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              backgroundColor: Colors.red,
+              backgroundColor: AppColors.red,
               content: Text(
                 state.errorMesssage,
-                style: AppTextStyle.medium18.copyWith(color: Colors.white),
+                style: context.medium18WhiteColor,
               ),
             ),
           );
@@ -40,7 +41,7 @@ class SignUpView extends StatelessWidget {
       },
       builder: (context, state) {
         return ModalProgressHUD(
-          progressIndicator: CircularProgressIndicator(
+          progressIndicator: const CircularProgressIndicator(
             color: AppColors.primaryColor,
           ),
           inAsyncCall: state is SignUpLoading,
@@ -55,38 +56,32 @@ class SignUpView extends StatelessWidget {
                     children: [
                       SizedBox(height: MediaQuery.sizeOf(context).height * .15),
                       Text(
-                        "Join us to start searching",
-                        style: AppTextStyle.medium24,
+                        S.of(context).signUpTitle,
+                        style: context.medium24,
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Text(
-                        "You can search c ourse, apply course and find scholarship for abroad studies",
-                        style: AppTextStyle.regular14,
+                        S.of(context).signUpSubTitle,
+                        style: context.regular14,
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 50),
+                      const SizedBox(height: 50),
                       LoginWithFacebookAndGoogleButtons(role: role),
-                      SizedBox(height: 35),
+                      const SizedBox(height: 35),
                       SignUpForm(role: role),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Center(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              "Already have an account? ",
-                              style: TextStyle(
-                                color: AppColors.primaryColor,
-                                fontSize: 14,
-                              ),
+                             Text(
+                              S.of(context).alreadyHaveAnAccount,
+                              style: context.regular14PrimaryColor
                             ),
                             GestureDetector(
-                              child: Text(
-                                "Log in",
-                                style: TextStyle(
-                                  color: AppColors.primaryColor,
-                                  fontSize: 14,
-                                ),
+                              child:  Text(
+                                S.of(context).logIn,
+                                style: context.regular14PrimaryColor
                               ),
                               onTap: () {
                                 context.go(RouteNames.signInRoute);

@@ -12,26 +12,25 @@ class AppointmentView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GradientBackground(
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsetsGeometry.symmetric(
-                horizontal: AppConsts.horizentalPadding,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsetsGeometry.symmetric(
+                  horizontal: AppConsts.horizentalPadding,
+                ),
+                child: CustomAppBar(title: S.of(context).appointment),
               ),
-              child: CustomAppBar(title: S.of(context).appointment),
-            ),
-            Expanded(
-              flex: 2,
-              child: Padding(
+              Padding(
                 padding: EdgeInsetsGeometry.symmetric(
                   horizontal: AppConsts.horizentalPadding,
                 ),
                 child: const CustomTableCalender(),
               ),
-            ),
-            const SizedBox(height: 30),
-            const Expanded(flex: 3, child: AppointmentSelection()),
-          ],
+              const SizedBox(height: 30),
+              const AppointmentSelection(),
+            ],
+          ),
         ),
       ),
     );

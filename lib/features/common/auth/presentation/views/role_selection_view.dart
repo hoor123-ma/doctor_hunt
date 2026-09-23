@@ -1,10 +1,11 @@
 import 'package:doctor_hunt/core/consts/app_consts.dart';
 import 'package:doctor_hunt/core/routes/route_names.dart';
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/core/widgets/gradient_background.dart';
 import 'package:doctor_hunt/features/common/on_boarding/presentation/views/widgets/selection_role_card.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -28,22 +29,22 @@ class _RoleSelectionViewState extends State<RoleSelectionView> {
             ),
             child: Column(
               children: [
-                SizedBox(height: 60),
-                Icon(
+                const SizedBox(height: 60),
+                const Icon(
                   Icons.medical_services_rounded,
                   color: AppColors.primaryColor,
                   size: 70,
                 ),
-                Text("Doctor Hunt", style: AppTextStyle.bold25),
-                SizedBox(height: 40),
-                Text("Choose your role", style: TextStyle(fontSize: 28)),
-                SizedBox(height: 5),
+                Text(S.of(context).appName, style: context.bold24),
+                const SizedBox(height: 40),
+                Text(S.of(context).chooseYourRole, style: context.regular28),
+                const SizedBox(height: 5),
                 Text(
-                  "The selected role determines the experience andavailable features.",
+                  S.of(context).roleSelectionTitle,
                   textAlign: TextAlign.center,
-                  style: AppTextStyle.regular14,
+                  style: context.regular14,
                 ),
-                SizedBox(height: 28),
+                const SizedBox(height: 28),
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -53,12 +54,11 @@ class _RoleSelectionViewState extends State<RoleSelectionView> {
                   child: SelectionRoleCard(
                     isSelected: isPatient,
                     icon: Icons.person,
-                    title: "Patient",
-                    subTitle:
-                        "Find doctors, book\nappointments,\nand manage your medical\nrecords.",
+                    title: S.of(context).patient,
+                    subTitle: S.of(context).roleSelectionSubtitle,
                   ),
                 ),
-                SizedBox(height: 24),
+                const SizedBox(height: 24),
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -68,12 +68,11 @@ class _RoleSelectionViewState extends State<RoleSelectionView> {
                   child: SelectionRoleCard(
                     isSelected: !isPatient,
                     icon: Icons.admin_panel_settings_rounded,
-                    title: "Admin",
-                    subTitle:
-                        "Manage doctors, appointments,\nusers, and the platform.",
+                    title: S.of(context).admin,
+                    subTitle: S.of(context).adminDescription,
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 CustomButton(
                   onTap: () {
                     context.go(
@@ -83,7 +82,7 @@ class _RoleSelectionViewState extends State<RoleSelectionView> {
                           : AppConsts.adminRole,
                     );
                   },
-                  title: "Continue",
+                  title: S.of(context).continueButton,
                 ),
               ],
             ),

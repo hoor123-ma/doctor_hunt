@@ -1,8 +1,9 @@
 import 'package:doctor_hunt/core/utils/functions/show_error_message.dart';
+import 'package:doctor_hunt/core/utils/functions/validations/doctor_speciality_validator.dart';
+import 'package:doctor_hunt/core/utils/functions/validations/name_validator.dart';
 import 'package:doctor_hunt/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/core/widgets/custom_text_form_field.dart';
 import 'package:doctor_hunt/features/admin/doctors/create_doctor/presentation/controller/create_doctor/cretae_doctor_cubit.dart';
-import 'package:doctor_hunt/features/admin/doctors/data/models/amin_doctor_model.dart';
 import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,13 +17,15 @@ class DoctorInfo extends StatefulWidget {
 }
 
 class _DoctorInfoState extends State<DoctorInfo> {
-  late GlobalKey formKey;
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final doctorNameController = TextEditingController();
   final doctorSpecialityController = TextEditingController();
+
   @override
-  void initState() {
-    super.initState();
-    formKey = GlobalKey();
+  void dispose() {
+    doctorNameController.dispose();
+    doctorSpecialityController.dispose();
+    super.dispose();
   }
 
   @override
@@ -35,32 +38,36 @@ class _DoctorInfoState extends State<DoctorInfo> {
           Text(S.of(context).doctorName),
           const SizedBox(height: 7),
           CustomTextField(
-            hintText: "e.g. Dr. Ahmed Ali",
+            validator: validateFullName,
+            hintText: S.of(context).doctorNameHint,
             controller: doctorNameController,
           ),
           const SizedBox(height: 15),
           Text(S.of(context).doctorSpeciality),
           const SizedBox(height: 7),
           CustomTextField(
-            hintText: "e.g. Dentist",
+            hintText: S.of(context).specialtyHint,
             controller: doctorSpecialityController,
+            validator: validateDoctorSpeciality,
           ),
           const SizedBox(height: 30),
           CustomButton(
             title: S.of(context).createDoctor,
             onTap: () {
-              if (widget.imageUrl == null) {
-                showErrorMessage(context, "Doctor's photo must be added");
-              } else {
-                context.read<CreateDoctorCubit>().createDoctor(
-                  AdminDoctorModel(
-                    imageUrl: widget.imageUrl!,
-                    name: doctorNameController.text.trim(),
-                    specialist: doctorSpecialityController.text.trim(),
-                    isActive: true,
-                  ),
-                );
+              if (!formKey.currentState!.validate()) {
+                return;
               }
+
+              if (widget.imageUrl == null) {
+                showErrorMessage(context, S.of(context).doctorPhotoMustBeAdded);
+                return;
+              }
+
+              context.read<CreateDoctorCubit>().createDoctor(
+                imageUrl: widget.imageUrl!,
+                name: doctorNameController.text.trim(),
+                speciality: doctorSpecialityController.text.trim(),
+              );
             },
           ),
         ],

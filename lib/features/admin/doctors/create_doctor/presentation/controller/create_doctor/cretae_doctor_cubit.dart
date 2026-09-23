@@ -7,8 +7,8 @@ part 'create_doctor_state.dart';
 class CreateDoctorCubit extends Cubit<CreateDoctorState> {
   final DoctorsRepo doctorsRepo;
   CreateDoctorCubit({required this.doctorsRepo}) : super(CreateDoctorInitial());
-  Future<void> createDoctor(AdminDoctorModel doctor) async {
-    final result = await doctorsRepo.addDoctor(doctor);
+  Future<void> createDoctor({required String imageUrl,required String name,required String speciality}) async {
+    final result = await doctorsRepo.addDoctor(imageUrl: imageUrl,name: name,speciality: speciality);
     result.fold(
       (error) {
         emit(CreateDoctorFailure(errorMessage: error.errorMsg));

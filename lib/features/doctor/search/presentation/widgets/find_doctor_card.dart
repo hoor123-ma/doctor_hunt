@@ -1,12 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/features/doctor/home/data/models/doctor_model.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 
 class FindDoctorCard extends StatefulWidget {
-  final DoctorModel doctor;
+  final PatientDoctorModel doctor;
   const FindDoctorCard({super.key, required this.doctor});
 
   @override
@@ -42,7 +43,7 @@ class _FindDoctorCardState extends State<FindDoctorCard> {
                               Flexible(
                                 child: Text(
                                   widget.doctor.name,
-                                  style: AppTextStyle.medium18,
+                                  style: context.medium18,
                                   maxLines: 2,
                                 ),
                               ),
@@ -52,17 +53,15 @@ class _FindDoctorCardState extends State<FindDoctorCard> {
 
                           Text(
                             widget.doctor.title,
-                            style: AppTextStyle.regular14.copyWith(
-                              color: AppColors.primaryColor,
-                            ),
+                            style: context.regular14PrimaryColor,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
                           const SizedBox(height: 3),
 
                           Text(
-                            "7 Years experience ",
-                            style: AppTextStyle.regular14,
+                            S.of(context).yearsExperience(7),
+                            style: context.regular14,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -78,7 +77,10 @@ class _FindDoctorCardState extends State<FindDoctorCard> {
                                     size: 15,
                                   ),
                                   const SizedBox(width: 3),
-                                  Text("87%", style: AppTextStyle.regular14),
+                                  Text(
+                                    S.of(context).positiveReviews(87),
+                                    style: context.regular14,
+                                  ),
                                 ],
                               ),
                               const SizedBox(width: 40),
@@ -91,8 +93,8 @@ class _FindDoctorCardState extends State<FindDoctorCard> {
                                   ),
                                   const SizedBox(width: 3),
                                   Text(
-                                    "69 Patient Stories",
-                                    style: AppTextStyle.regular14,
+                                    S.of(context).patientStories(69),
+                                    style: context.regular14,
                                   ),
                                 ],
                               ),
@@ -113,21 +115,14 @@ class _FindDoctorCardState extends State<FindDoctorCard> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Next Available",
-                          style: AppTextStyle.medium18.copyWith(
-                            color: AppColors.primaryColor,
-                          ),
+                          S.of(context).nextAvailable,
+                          style: context.medium18PrimaryColor,
                         ),
                         Row(
                           children: [
-                            Text(
-                              "10:00 ",
-                              style: AppTextStyle.medium18.copyWith(
-                                color: AppColors.greyColor,
-                              ),
-                            ),
+                            Text("10:00 ", style: context.medium18GreyColor),
 
-                            Text("AM tomorrow", style: AppTextStyle.regular14),
+                            Text("AM tomorrow", style: context.regular14),
                           ],
                         ),
                       ],
@@ -135,7 +130,10 @@ class _FindDoctorCardState extends State<FindDoctorCard> {
                     SizedBox(
                       width: 140,
                       height: 50,
-                      child: CustomButton(onTap: () {}, title: "Book now"),
+                      child: CustomButton(
+                        onTap: () {},
+                        title: S.of(context).bookNow,
+                      ),
                     ),
                   ],
                 ),
@@ -154,7 +152,7 @@ class _FindDoctorCardState extends State<FindDoctorCard> {
             },
             child: Icon(
               isFavourite ? Icons.favorite : Icons.favorite_outline,
-              color: isFavourite ? Colors.red : AppColors.greyColor,
+              color: isFavourite ? Colors.red : AppColors.grey,
             ),
           ),
         ),

@@ -1,4 +1,4 @@
-class DoctorModel {
+class PatientDoctorModel {
   final String imageUrl;
   final String name;
   final String title;
@@ -6,7 +6,7 @@ class DoctorModel {
   final double price;
   final int experienceYears;
 
-  const DoctorModel({
+  const PatientDoctorModel({
     required this.imageUrl,
     required this.name,
     this.title = "",

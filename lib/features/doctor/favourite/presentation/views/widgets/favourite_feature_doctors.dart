@@ -5,32 +5,29 @@ import 'package:flutter/material.dart';
 
 class FavouriteFeatureDoctors extends StatelessWidget {
   const FavouriteFeatureDoctors({super.key});
-  final List<DoctorModel> doctors = const [
-    DoctorModel(
+  final List<PatientDoctorModel> doctors = const [
+    PatientDoctorModel(
       imageUrl: Assets.assetsImagesFeatureDoctor1,
       name: "Dr. Crick",
 
       rating: 3.7,
       price: 25,
     ),
-    DoctorModel(
+    PatientDoctorModel(
       imageUrl: Assets.assetsImagesFeatureDoctor2,
       name: "Dr. Strain",
-
       rating: 3.0,
       price: 22,
     ),
-    DoctorModel(
+    PatientDoctorModel(
       imageUrl: Assets.assetsImagesFeatureDoctor3,
       name: "Dr. Lachinet",
-
       rating: 2.9,
       price: 29,
     ),
-    DoctorModel(
+    PatientDoctorModel(
       imageUrl: Assets.assetsImagesFeatureDoctor4,
       name: "Dr. Crick",
-
       rating: 3.0,
       price: 25,
     ),
@@ -39,10 +36,9 @@ class FavouriteFeatureDoctors extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 6, bottom: 100),
+      padding: const EdgeInsets.only(left: 6, bottom: 100),
       child: SizedBox(
         height: 180,
-
         child: ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,

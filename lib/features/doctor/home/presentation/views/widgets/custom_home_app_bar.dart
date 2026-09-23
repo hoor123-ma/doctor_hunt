@@ -1,9 +1,11 @@
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
+import 'package:doctor_hunt/core/utils/functions/show_error_message.dart';
 import 'package:doctor_hunt/core/widgets/custom_search_field.dart';
 import 'package:doctor_hunt/core/widgets/profile_photo.dart';
 import 'package:doctor_hunt/features/common/auth/data/models/user_model.dart';
 import 'package:doctor_hunt/features/doctor/home/presentation/controller/upload_photo_cubit.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,9 +18,7 @@ class CustomHomeAppBar extends StatelessWidget {
     return BlocConsumer<UploadPatientPhotoCubit, UploadPhotoState>(
       listener: (context, state) {
         if (state is UploadPhotoFilure) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(state.errorMessage)));
+          showErrorMessage(context, state.errorMessage);
         }
       },
       builder: (BuildContext context, UploadPhotoState state) {
@@ -50,18 +50,13 @@ class CustomHomeAppBar extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Hi ${user.name}! ",
-                              style: const TextStyle(
-                                fontSize: 18,
-                                color: Colors.white,
-                              ),
+                              S.of(context).welcomeMessage(user.name),
+                              style: context.regular18WhiteColor
                             ),
                             const SizedBox(height: 3),
                             Text(
-                              "Find Your Doctor",
-                              style: AppTextStyle.bold25.copyWith(
-                                color: Colors.white,
-                              ),
+                              S.of(context).findYourDoctor,
+                              style: context.bold24WhiteColor,
                             ),
                           ],
                         ),
@@ -76,11 +71,11 @@ class CustomHomeAppBar extends StatelessWidget {
                   ),
                 ),
               ),
-              const Positioned(
+              Positioned(
                 bottom: -30,
                 left: 20,
                 right: 20,
-                child: CustomSearchField(hintText: "Search..... "),
+                child: CustomSearchField(hintText: S.of(context).searchHint),
               ),
             ],
           ),

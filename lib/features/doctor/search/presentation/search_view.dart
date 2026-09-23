@@ -3,8 +3,8 @@ import 'package:doctor_hunt/core/widgets/custom_search_field.dart';
 import 'package:doctor_hunt/core/widgets/cutom_app_bar.dart';
 import 'package:doctor_hunt/core/widgets/gradient_background.dart';
 import 'package:doctor_hunt/features/doctor/search/presentation/widgets/find_doctors_list_view.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:flutter/material.dart';
-
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
@@ -19,12 +19,12 @@ class SearchView extends StatelessWidget {
             padding: EdgeInsets.symmetric(
               horizontal: AppConsts.horizentalPadding,
             ),
-            child: const Column(
+            child: Column(
               children: [
-                CustomAppBar(title: 'Find Doctors'),
-                SizedBox(height: 3),
-                CustomSearchField(hintText: "Dentist"),
-                FindDoctorsListView(),
+                CustomAppBar(title: S.of(context).findDoctors),
+                const SizedBox(height: 3),
+                CustomSearchField(hintText: S.of(context).dentist),
+                const FindDoctorsListView(),
               ],
             ),
           ),

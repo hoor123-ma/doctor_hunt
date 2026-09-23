@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/core/theme/app_colors.dart';
 import 'package:doctor_hunt/features/doctor/home/data/models/category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -12,8 +13,8 @@ class CategoriesItem extends StatelessWidget {
       children: [
         Container(
           width: 70,
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          margin: EdgeInsets.only(left: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          margin: const EdgeInsets.only(left: 10),
           decoration: BoxDecoration(
             color: category.backgroundcolor,
             borderRadius: BorderRadius.circular(10),
@@ -28,7 +29,7 @@ class CategoriesItem extends StatelessWidget {
             height: 60,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.white.withValues(alpha: .1),
+              color: AppColors.white.withValues(alpha: .1),
             ),
           ),
         ),
@@ -41,7 +42,7 @@ class CategoriesItem extends StatelessWidget {
             height: 80,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.white.withValues(alpha: .1),
+              color: AppColors.white.withValues(alpha: .1),
             ),
           ),
         ),

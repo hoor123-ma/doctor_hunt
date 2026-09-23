@@ -1,11 +1,12 @@
 import 'package:doctor_hunt/core/routes/route_names.dart';
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/core/widgets/gradient_background.dart';
 import 'package:doctor_hunt/features/admin/doctors/doctors_list/presentation/doctors_view.dart';
 import 'package:doctor_hunt/features/admin/settings/presentation/admin_settings_view.dart';
 import 'package:doctor_hunt/features/common/auth/data/models/user_model.dart';
 import 'package:doctor_hunt/generated/assets.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
@@ -60,12 +61,10 @@ class _AdminLayoutState extends State<AdminLayout> {
               ),
               child: BottomNavigationBar(
                 selectedItemColor: AppColors.primaryColor,
-                unselectedItemColor: AppColors.greyColor,
-                selectedLabelStyle: AppTextStyle.regular14.copyWith(
-                  color: AppColors.primaryColor,
-                ),
-                unselectedLabelStyle: AppTextStyle.regular14,
-                backgroundColor: Colors.white,
+                unselectedItemColor: AppColors.grey,
+                selectedLabelStyle: context.regular14PrimaryColor,
+                unselectedLabelStyle: context.regular14,
+                backgroundColor: AppColors.white,
                 elevation: 2,
                 type: BottomNavigationBarType.fixed,
                 currentIndex: currentIndex,
@@ -81,7 +80,7 @@ class _AdminLayoutState extends State<AdminLayout> {
                     icon: SvgPicture.asset(
                       Assets.assetsImagesMedicalIcon,
                       colorFilter: const ColorFilter.mode(
-                        AppColors.greyColor,
+                        AppColors.grey,
                         BlendMode.srcIn,
                       ),
                     ),
@@ -92,16 +91,16 @@ class _AdminLayoutState extends State<AdminLayout> {
                         BlendMode.srcIn,
                       ),
                     ),
-                    label: 'Doctors',
+                    label: S.of(context).doctors,
                   ),
 
-                  const BottomNavigationBarItem(
-                    icon: Icon(Icons.settings),
-                    activeIcon: Icon(
+                  BottomNavigationBarItem(
+                    icon: const Icon(Icons.settings),
+                    activeIcon: const Icon(
                       Icons.settings,
                       color: AppColors.primaryColor,
                     ),
-                    label: 'Settings',
+                    label: S.of(context).settings,
                   ),
                 ],
               ),
@@ -127,10 +126,10 @@ class CustomFloatingActionButton extends StatelessWidget {
         },
         backgroundColor: AppColors.primaryColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
-        icon: const Icon(Icons.add, color: Colors.white, size: 16),
+        icon: const Icon(Icons.add, color: AppColors.white, size: 16),
         label: Text(
-          "Add Doctor",
-          style: AppTextStyle.regular12.copyWith(color: Colors.white),
+          S.of(context).addDoctor,
+          style: context.regular12WhiteColor,
         ),
       ),
     );

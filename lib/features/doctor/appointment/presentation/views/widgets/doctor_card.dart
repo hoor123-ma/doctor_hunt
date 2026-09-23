@@ -1,10 +1,10 @@
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/features/doctor/home/data/models/doctor_model.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 
 class DoctorCard extends StatefulWidget {
-  final DoctorModel doctor;
+  final PatientDoctorModel doctor;
 
   const DoctorCard({super.key, required this.doctor});
 
@@ -20,7 +20,7 @@ class _DoctorDetailCardState extends State<DoctorCard> {
     return Stack(
       children: [
         Card(
-          color: Colors.white,
+          color: AppColors.white,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
             child: Column(
@@ -29,9 +29,7 @@ class _DoctorDetailCardState extends State<DoctorCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Image.asset(widget.doctor.imageUrl, width: 92, height: 87),
-
                     const SizedBox(width: 5),
-
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,7 +39,7 @@ class _DoctorDetailCardState extends State<DoctorCard> {
                               Flexible(
                                 child: Text(
                                   widget.doctor.name,
-                                  style: AppTextStyle.medium18,
+                                  style: context.medium18,
                                   maxLines: 2,
                                 ),
                               ),
@@ -51,7 +49,7 @@ class _DoctorDetailCardState extends State<DoctorCard> {
                           if (widget.doctor.title.isNotEmpty)
                             Text(
                               widget.doctor.title,
-                              style: AppTextStyle.regular14,
+                              style: context.regular14,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -68,14 +66,14 @@ class _DoctorDetailCardState extends State<DoctorCard> {
                               )
                                 const Icon(
                                   Icons.star,
-                                  color: Color(0xffF6D060),
+                                  color: AppColors.yellow,
                                   size: 18,
                                 ),
 
                               for (int i = 0; i < 5 - widget.doctor.rating; i++)
                                 const Icon(
                                   Icons.star,
-                                  color: Color(0xffE2E5EA),
+                                  color: AppColors.lightGrey,
                                   size: 18,
                                 ),
                             ],
@@ -102,7 +100,7 @@ class _DoctorDetailCardState extends State<DoctorCard> {
             },
             child: Icon(
               isFavourite ? Icons.favorite : Icons.favorite_outline,
-              color: isFavourite ? Colors.red : AppColors.greyColor,
+              color: isFavourite ? Colors.red : AppColors.grey,
             ),
           ),
         ),

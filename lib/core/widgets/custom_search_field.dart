@@ -18,20 +18,24 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
-          BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 3)),
+          const BoxShadow(
+            color: AppColors.black,
+            blurRadius: 8,
+            offset: Offset(0, 3),
+          ),
         ],
       ),
       child: TextField(
         controller: _textEditingController,
         focusNode: _focusNode,
         decoration: InputDecoration(
-          fillColor: Colors.white,
+          fillColor: AppColors.white,
           filled: true,
           hintText: widget.hintText,
-          hintStyle: TextStyle(color: AppColors.greyColor),
-          prefixIcon: Icon(Icons.search, color: AppColors.greyColor),
+          hintStyle: const TextStyle(color: AppColors.grey),
+          prefixIcon: const Icon(Icons.search, color: AppColors.grey),
           suffixIcon: IconButton(
-            icon: Icon(Icons.close, color: AppColors.greyColor),
+            icon: const Icon(Icons.close, color: AppColors.grey),
             onPressed: () {
               _textEditingController.clear();
               _focusNode.unfocus();

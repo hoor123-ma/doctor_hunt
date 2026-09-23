@@ -1,7 +1,8 @@
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/core/utils/functions/handle_startup.dart';
 import 'package:doctor_hunt/core/widgets/gradient_background.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {
@@ -36,7 +37,7 @@ class _SplashViewState extends State<SplashView> {
                 color: AppColors.primaryColor,
                 size: 70,
               ),
-              Text("Doctor Hunt", style: AppTextStyle.bold25),
+              Text(S.of(context).appName, style: context.bold24),
             ],
           ),
         ),
@@ -44,3 +45,4 @@ class _SplashViewState extends State<SplashView> {
     );
   }
 }
+

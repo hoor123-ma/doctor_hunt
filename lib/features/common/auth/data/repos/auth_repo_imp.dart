@@ -25,7 +25,7 @@ class AuthRepoImp extends AuthRepo {
       final user = credential.user;
 
       if (user == null) {
-        return Left(AuthError(errorMsg: 'User not found'));
+        return const Left(AuthError(errorMsg: 'User not found'));
       }
       final result = await firestoreService.getDoc(
         AppConsts.usersCollection,
@@ -37,7 +37,7 @@ class AuthRepoImp extends AuthRepo {
       if (e is FirebaseAuthException) {
         return Left(AuthError.fromFirebaseAuthException(e));
       } else {
-        return Left(
+        return const Left(
           AuthError(errorMsg: "Unexpexted error please try again later"),
         );
       }
@@ -71,7 +71,7 @@ class AuthRepoImp extends AuthRepo {
     } on FirebaseAuthException catch (e) {
       return Left(AuthError.fromFirebaseAuthException(e));
     } catch (e) {
-      return Left(
+      return const Left(
         AuthError(errorMsg: "Unexpexted error, please try again later."),
       );
     }
@@ -90,7 +90,7 @@ class AuthRepoImp extends AuthRepo {
       if (e is FirebaseAuthException) {
         return Left(AuthError.fromFirebaseAuthException(e));
       } else {
-        return Left(
+        return const Left(
           AuthError(errorMsg: "Unexpected error, please try again later."),
         );
       }
@@ -104,7 +104,7 @@ class AuthRepoImp extends AuthRepo {
       final user = userCredential.user;
 
       if (user == null) {
-        return Left(AuthError(errorMsg: 'User not found'));
+        return const Left(AuthError(errorMsg: 'User not found'));
       }
       final result = await firestoreService.getDoc(
         AppConsts.usersCollection,
@@ -135,7 +135,7 @@ class AuthRepoImp extends AuthRepo {
       } else if (e is GoogleSignInException) {
         return Left(AuthError.fromGoogleSignInException(e));
       } else {
-        return Left(
+        return const Left(
           AuthError(errorMsg: "Unexpected error, please try again later."),
         );
       }

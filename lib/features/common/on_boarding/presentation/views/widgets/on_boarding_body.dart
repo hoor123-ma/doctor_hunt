@@ -1,5 +1,5 @@
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/features/common/on_boarding/data/models/on_boarding_item.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingBody extends StatelessWidget {
@@ -19,15 +19,15 @@ class OnBoardingBody extends StatelessWidget {
               child: Image.asset(item.imageUrl, fit: BoxFit.contain),
             ),
           ),
-          SizedBox(height: 15),
-          Text(item.title, style: AppTextStyle.medium28),
-          SizedBox(height: 5),
+          const SizedBox(height: 15),
+          Text(item.title, style: context.medium28),
+          const SizedBox(height: 5),
           Text(
             textAlign: TextAlign.center,
             item.subTitile,
-            style: AppTextStyle.regular14.copyWith(height: 1.7),
+            style: context.regular14.copyWith(height: 1.7),
           ),
-          Spacer(flex: 1),
+          const Spacer(flex: 1),
         ],
       ),
     );

@@ -1,11 +1,12 @@
 import 'package:doctor_hunt/core/consts/app_consts.dart';
 import 'package:doctor_hunt/core/routes/route_names.dart';
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/core/widgets/gradient_background.dart';
 import 'package:doctor_hunt/features/common/auth/presentation/controller/signin/signin_cubit.dart';
 import 'package:doctor_hunt/features/common/auth/presentation/views/widgets/login_form.dart';
 import 'package:doctor_hunt/features/common/auth/presentation/views/widgets/login_in_with_facebook_and_google_button.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -22,10 +23,10 @@ class SignInView extends StatelessWidget {
         if (state is SigninFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              backgroundColor: Colors.red,
+              backgroundColor: AppColors.red,
               content: Text(
                 state.errorMessage,
-                style: AppTextStyle.medium18.copyWith(color: Colors.white),
+                style: context.medium18WhiteColor,
               ),
             ),
           );
@@ -57,11 +58,11 @@ class SignInView extends StatelessWidget {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * .15,
                       ),
-                      Text("Welcome back", style: AppTextStyle.medium24),
+                      Text(S.of(context).welcomeBack, style: context.medium24),
                       const SizedBox(height: 10),
                       Text(
-                        "You can search course, apply course and find scholarship for abroad studies",
-                        style: AppTextStyle.regular14,
+                        S.of(context).youCanSearchCourse,
+                        style: context.regular14,
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 50),
@@ -75,17 +76,17 @@ class SignInView extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Text(
-                                "Don’t have an account? ",
-                                style: TextStyle(
+                              Text(
+                                S.of(context).haveAnAccount,
+                                style: const TextStyle(
                                   color: AppColors.primaryColor,
                                   fontSize: 14,
                                 ),
                               ),
                               GestureDetector(
-                                child: const Text(
-                                  "Join us",
-                                  style: TextStyle(
+                                child: Text(
+                                  S.of(context).joinUs,
+                                  style: const TextStyle(
                                     color: AppColors.primaryColor,
                                     fontSize: 14,
                                   ),

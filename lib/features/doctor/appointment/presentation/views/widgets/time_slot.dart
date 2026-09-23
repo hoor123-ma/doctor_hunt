@@ -1,5 +1,5 @@
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 
 class TimeSlot extends StatelessWidget {
@@ -14,15 +14,15 @@ class TimeSlot extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         color: isSelected
             ? AppColors.primaryColor
-            : const Color(0xff0EBE7F).withValues(alpha: .1),
+            : AppColors.primaryColor.withValues(alpha: .1),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
         child: Text(
           time,
           style: isSelected
-              ? AppTextStyle.medium18.copyWith(color: Colors.white)
-              : AppTextStyle.medium18.copyWith(color: AppColors.primaryColor),
+              ? context.medium18WhiteColor
+              : context.medium18PrimaryColor,
         ),
       ),
     );

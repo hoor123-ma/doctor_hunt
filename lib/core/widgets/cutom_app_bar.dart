@@ -1,6 +1,6 @@
 import 'package:doctor_hunt/core/routes/route_names.dart';
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -26,14 +26,14 @@ class CustomAppBar extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppColors.white,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: const Padding(
                 padding: EdgeInsets.only(left: 4),
                 child: Icon(
                   Icons.arrow_back_ios,
-                  color: AppColors.greyColor,
+                  color: AppColors.grey,
                   size: 20,
                 ),
               ),
@@ -44,14 +44,14 @@ class CustomAppBar extends StatelessWidget {
               padding: showSearchIcon
                   ? EdgeInsetsGeometry.zero
                   : const EdgeInsetsGeometry.only(left: 20),
-              child: Text(title, style: AppTextStyle.medium18),
+              child: Text(title, style: context.medium18),
             ),
           if (showSearchIcon)
             IconButton(
               onPressed: () {
                 context.push(RouteNames.searchRoute);
               },
-              icon: const Icon(Icons.search, color: AppColors.greyColor),
+              icon: const Icon(Icons.search, color: AppColors.grey),
             ),
         ],
       ),

@@ -5,6 +5,8 @@ import 'package:doctor_hunt/features/common/on_boarding/data/models/on_boarding_
 import 'package:doctor_hunt/features/common/on_boarding/presentation/views/widgets/custom_skip_button.dart';
 import 'package:doctor_hunt/features/common/on_boarding/presentation/views/widgets/on_boarding_background.dart';
 import 'package:doctor_hunt/features/common/on_boarding/presentation/views/widgets/on_boarding_body.dart';
+import 'package:doctor_hunt/generated/assets.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:doctor_hunt/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -19,29 +21,26 @@ class OnBoardingView extends StatefulWidget {
 class _OnBoardingViewState extends State<OnBoardingView> {
   final _pageController = PageController();
   int currentPage = 0;
-  final List<OnBoardingItem> onBoardingItems = const [
-    OnBoardingItem(
-      imageUrl: "assets/images/onboarding1.png",
-      title: "Find Trusted Doctors",
-      subTitile:
-          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.",
-    ),
-    OnBoardingItem(
-      imageUrl: "assets/images/onboarding2.png",
-      title: "Choose Best Doctors",
-      subTitile:
-          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.",
-    ),
-    OnBoardingItem(
-      imageUrl: "assets/images/onboarding3.png",
-      title: "Easy Appointments",
-      subTitile:
-          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.",
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
+    final List<OnBoardingItem> onBoardingItems = [
+      OnBoardingItem(
+        imageUrl: Assets.assetsImagesOnboarding1,
+        title: S.of(context).onBoardingTitle1,
+        subTitile: S.of(context).onBoardingSubTitle1,
+      ),
+      OnBoardingItem(
+        imageUrl: Assets.assetsImagesOnboarding2,
+        title: S.of(context).onBoardingTitle2,
+        subTitile: S.of(context).onBoardingSubTitle2,
+      ),
+      OnBoardingItem(
+        imageUrl: Assets.assetsImagesOnboarding3,
+        title: S.of(context).onBoardingTitle3,
+        subTitile: S.of(context).onBoardingSubTitle3,
+      ),
+    ];
     return Scaffold(
       body: OnBoardingBackground(
         child: SafeArea(
@@ -67,9 +66,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: CustomButton(
-                    title: "Get Started",
+                    title: S.of(context).getStarted,
                     onTap: () async {
-                      if (currentPage == 2) {
+                      if (currentPage == onBoardingItems.length - 1) {
                         await getIt<SharedPreferencesService>()
                             .setIsOnboardingSeen(true);
                         if (context.mounted) {
@@ -102,5 +101,11 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 }

@@ -1,8 +1,9 @@
 import 'package:doctor_hunt/core/consts/app_consts.dart';
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/core/widgets/custom_button.dart';
+import 'package:doctor_hunt/features/doctor/appointment/presentation/views/widgets/custom_time_container.dart';
 import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,20 +15,20 @@ class AppointmentSelection extends StatefulWidget {
 }
 
 class _AppointmentSelectionState extends State<AppointmentSelection> {
-  List<String> availableTimes = [
-    "10:00 AM",
-    "12:00 PM",
-    "02:00 PM",
-    "03:00 PM",
-    "04:00 PM",
+  static const List<String> availableTimes = [
+    '10:00 AM',
+    '12:00 PM',
+    '02:00 PM',
+    '03:00 PM',
+    '04:00 PM',
   ];
 
-  List<String> remiderTimes = [
-    "30 Minit",
-    "40 Minit",
-    "25 Minit",
-    "10 Minit",
-    "35 Minit",
+  static const List<String> reminderTimes = [
+    '30 Minutes',
+    '40 Minutes',
+    '25 Minutes',
+    '10 Minutes',
+    '35 Minutes',
   ];
 
   int selectedTimeIndex = 0;
@@ -39,97 +40,83 @@ class _AppointmentSelectionState extends State<AppointmentSelection> {
 
     return Container(
       decoration: const BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(45),
           topRight: Radius.circular(45),
         ),
       ),
-      child: Padding(
-        padding: EdgeInsetsGeometry.symmetric(
-          horizontal: AppConsts.horizentalPadding,
-          vertical: 20,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(l10n.availableTime, style: AppTextStyle.medium18),
+      padding: EdgeInsets.symmetric(
+        horizontal: AppConsts.horizentalPadding,
+        vertical: 20,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(l10n.availableTime, style: context.medium18),
+          const SizedBox(height: 10),
 
-            const SizedBox(height: 10),
-
-            // Available Times
-            Wrap(
-              alignment: WrapAlignment.center,
-              spacing: 4,
-              runSpacing: 8,
-              children: List.generate(availableTimes.length, (index) {
-                final time = availableTimes[index].split(' ');
-
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedTimeIndex = index;
-                    });
-                  },
-                  child: CustomTimeContainer(
-                    isSelected: index == selectedTimeIndex,
-                    title1: time[0],
-                    title2: time[1],
-                  ),
-                );
-              }),
+          _buildTimeSelection(
+            items: availableTimes,
+            selectedIndex: selectedTimeIndex,
+            onSelected: (index) {
+              setState(() {
+                selectedTimeIndex = index;
+              });
+            },
+          ),
+          const SizedBox(height: 20),
+          Text(l10n.reminderMeBefore, style: context.medium18),
+          const SizedBox(height: 10),
+          _buildTimeSelection(
+            items: reminderTimes,
+            selectedIndex: selectedReminderIndex,
+            onSelected: (index) {
+              setState(() {
+                selectedReminderIndex = index;
+              });
+            },
+          ),
+          const SizedBox(height: 15),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: CustomButton(
+              title: l10n.confirm,
+              onTap: () => _showSuccessDialog(context),
             ),
-
-            const SizedBox(height: 20),
-
-            Text(l10n.reminderMeBefore, style: AppTextStyle.medium18),
-
-            const SizedBox(height: 10),
-
-            // Reminder Times
-            Wrap(
-              alignment: WrapAlignment.center,
-              spacing: 4,
-              runSpacing: 8,
-              children: List.generate(remiderTimes.length, (index) {
-                final reminder = remiderTimes[index].split(' ');
-
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedReminderIndex = index;
-                    });
-                  },
-                  child: CustomTimeContainer(
-                    isSelected: index == selectedReminderIndex,
-                    title1: reminder[0],
-                    title2: reminder[1],
-                  ),
-                );
-              }),
-            ),
-
-            const SizedBox(height: 15),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: CustomButton(
-                title: l10n.confirm,
-                onTap: () {
-                  showSuccessDialog(context);
-                },
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 
-  Future<dynamic> showSuccessDialog(BuildContext context) {
+  Widget _buildTimeSelection({
+    required List<String> items,
+    required int selectedIndex,
+    required ValueChanged<int> onSelected,
+  }) {
+    return Wrap(
+      alignment: WrapAlignment.center,
+      spacing: 4,
+      runSpacing: 8,
+      children: List.generate(items.length, (index) {
+        final parts = items[index].split(' ');
+        return GestureDetector(
+          onTap: () => onSelected(index),
+          child: CustomTimeContainer(
+            isSelected: index == selectedIndex,
+            title1: parts[0],
+            title2: parts[1],
+          ),
+        );
+      }),
+    );
+  }
+
+  Future<void> _showSuccessDialog(BuildContext context) async {
     final l10n = S.of(context);
 
-    return showDialog(
+    await showDialog<void>(
       context: context,
       builder: (context) {
         return Center(
@@ -139,7 +126,7 @@ class _AppointmentSelectionState extends State<AppointmentSelection> {
             ),
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppColors.white,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Column(
@@ -148,50 +135,40 @@ class _AppointmentSelectionState extends State<AppointmentSelection> {
                 Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: const Color(0xff0EBE7F).withValues(alpha: 0.2),
+                    color: AppColors.primaryColor.withValues(alpha: 0.2),
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(
+                  child: const Icon(
                     Icons.thumb_up,
                     color: AppColors.primaryColor,
                     size: 72,
                   ),
                 ),
-
                 const SizedBox(height: 20),
-
-                Text(l10n.thankYou, style: AppTextStyle.medium18),
-
+                Text(l10n.thankYou, style: context.medium18),
                 const SizedBox(height: 5),
-
-                Text(l10n.appointmentSuccessful, style: AppTextStyle.regular14),
-
+                Text(l10n.appointmentSuccessful, style: context.regular14),
                 const SizedBox(height: 10),
 
                 Text(
                   l10n.appointmentDetails(
-                    "Pediatrician Purpieson",
-                    "February 21",
-                    "02:00 PM",
+                    'Pediatrician Purpieson',
+                    'February 21',
+                    '02:00 PM',
                   ),
-                  style: AppTextStyle.regular14.copyWith(fontSize: 12),
+                  style: context.regular12,
                   textAlign: TextAlign.center,
                 ),
 
                 const SizedBox(height: 20),
 
-                CustomButton(
-                  title: l10n.done,
-                  onTap: () {
-                    context.pop();
-                  },
-                ),
+                CustomButton(title: l10n.done, onTap: () => context.pop()),
 
                 TextButton(
                   onPressed: () {},
                   child: Text(
                     l10n.editYourAppointment,
-                    style: AppTextStyle.regular14,
+                    style: context.regular14,
                   ),
                 ),
               ],
@@ -199,52 +176,6 @@ class _AppointmentSelectionState extends State<AppointmentSelection> {
           ),
         );
       },
-    );
-  }
-}
-
-class CustomTimeContainer extends StatelessWidget {
-  final bool isSelected;
-  final String title1;
-  final String title2;
-
-  const CustomTimeContainer({
-    super.key,
-    required this.isSelected,
-    required this.title1,
-    required this.title2,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 3),
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: isSelected
-            ? AppColors.primaryColor
-            : const Color(0xff0EBE7F).withValues(alpha: 0.2),
-        shape: BoxShape.circle,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            title1,
-            style: TextStyle(
-              fontWeight: isSelected ? FontWeight.bold : null,
-              color: isSelected ? Colors.white : AppColors.primaryColor,
-            ),
-          ),
-          Text(
-            title2,
-            style: TextStyle(
-              fontWeight: isSelected ? FontWeight.bold : null,
-              color: isSelected ? Colors.white : AppColors.primaryColor,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

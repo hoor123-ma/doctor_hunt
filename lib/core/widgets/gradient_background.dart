@@ -1,3 +1,4 @@
+import 'package:doctor_hunt/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class GradientBackground extends StatelessWidget {
@@ -15,7 +16,7 @@ class GradientBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(color: Color(0xffE6ECEA)),
+        Container(color: AppColors.gradientGreyBackground),
         if (showTopGradient)
           Positioned(
             top: -100,
@@ -26,8 +27,8 @@ class GradientBackground extends StatelessWidget {
               decoration: const BoxDecoration(
                 gradient: RadialGradient(
                   colors: [
-                    Color.fromARGB(255, 145, 208, 231),
-                    Color(0xffE6ECEA),
+                    AppColors.gradienBlueBackground,
+                    AppColors.gradientGreyBackground,
                   ],
                 ),
               ),
@@ -44,8 +45,8 @@ class GradientBackground extends StatelessWidget {
               decoration: const BoxDecoration(
                 gradient: RadialGradient(
                   colors: [
-                    Color.fromARGB(255, 148, 237, 194),
-                    Color(0xffE6ECEA),
+                    AppColors.gradientGreenBackground,
+                    AppColors.gradientGreyBackground,
                   ],
                 ),
               ),

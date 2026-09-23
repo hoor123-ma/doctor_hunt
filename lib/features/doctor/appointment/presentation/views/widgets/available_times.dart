@@ -1,13 +1,13 @@
 import 'package:doctor_hunt/core/consts/app_consts.dart';
 import 'package:doctor_hunt/core/routes/route_names.dart';
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/features/doctor/appointment/data/doctor_time.dart';
 import 'package:doctor_hunt/features/doctor/appointment/presentation/views/widgets/available_slots_section.dart';
 import 'package:doctor_hunt/features/doctor/appointment/presentation/views/widgets/no_slots_available_section.dart';
 import 'package:doctor_hunt/features/doctor/appointment/presentation/views/widgets/time_card.dart';
 import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
@@ -54,18 +54,16 @@ class _AvailableTimesState extends State<AvailableTimes> {
         ),
         Column(
           children: [
-            SizedBox(height: 20),
-            // 3 0..2
-            // 
-            Text(doctorTimes[selectedIndex].date, style: AppTextStyle.medium18),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
+            Text(doctorTimes[selectedIndex].date, style: context.medium18),
+            const SizedBox(height: 20),
             if (doctorTimes[selectedIndex].availableSlots == 0)
               NoSlotsAvailableSection(
                 nextTime: doctorTimes[selectedIndex + 1].date,
               ),
             if (doctorTimes[selectedIndex].availableSlots > 0)
-              AvailableSlotsSection(),
-            SizedBox(height: 20),
+              const AvailableSlotsSection(),
+            const SizedBox(height: 20),
             if (doctorTimes[selectedIndex].availableSlots > 0)
               Padding(
                 padding: EdgeInsetsGeometry.symmetric(
@@ -78,7 +76,7 @@ class _AvailableTimesState extends State<AvailableTimes> {
                   },
                 ),
               ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
           ],
         ),
       ],

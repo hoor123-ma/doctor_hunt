@@ -11,7 +11,7 @@ class DoctorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.white,
+      color: AppColors.white,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
         child: Row(
@@ -31,7 +31,7 @@ class DoctorItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(doctor.name, style: context.bold14),
-                Text(doctor.specialist, style: context.regular12GreyColor),
+                Text(doctor.speciality, style: context.regular12GreyColor),
                 const SizedBox(height: 10),
                 Container(
                   padding: const EdgeInsets.symmetric(
@@ -56,8 +56,8 @@ class DoctorItem extends StatelessWidget {
                       const SizedBox(width: 8),
                       Text(
                         doctor.isActive
-                            ? S.of(context).Active
-                            : S.of(context).Inactive,
+                            ? S.of(context).active
+                            : S.of(context).inactive,
                         style: context.bold12.copyWith(
                           color: doctor.isActive
                               ? AppColors.primaryColor

@@ -1,11 +1,12 @@
 import 'package:doctor_hunt/core/routes/route_names.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
+import 'package:doctor_hunt/core/theme/app_colors.dart';
 import 'package:doctor_hunt/features/doctor/home/data/models/doctor_model.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class PopularDoctorItem extends StatelessWidget {
-  final DoctorModel doctor;
+  final PatientDoctorModel doctor;
   const PopularDoctorItem({super.key, required this.doctor});
 
   @override
@@ -22,7 +23,7 @@ class PopularDoctorItem extends StatelessWidget {
         child: Card(
           elevation: 3,
           shadowColor: Colors.grey.shade400,
-          color: Colors.white,
+          color: AppColors.white,
           child: Column(
             children: [
               Image.asset(
@@ -31,17 +32,17 @@ class PopularDoctorItem extends StatelessWidget {
                 height: 180,
                 fit: BoxFit.fill,
               ),
-              SizedBox(height: 8),
-              Text(doctor.name, style: AppTextStyle.medium18),
-              SizedBox(height: 3),
-              Text(doctor.title, style: AppTextStyle.regular14),
-              SizedBox(height: 4),
+              const SizedBox(height: 8),
+              Text(doctor.name, style: context.medium18),
+              const SizedBox(height: 3),
+              Text(doctor.title, style: context.regular14),
+              const SizedBox(height: 4),
               Row(
                 children: [
                   for (int i = 0; i < doctor.rating; i++)
-                    Icon(Icons.star, color: Color(0xffF6D060)),
+                    const Icon(Icons.star, color: AppColors.yellow),
                   for (int i = 0; i < 5 - doctor.rating; i++)
-                    Icon(Icons.star, color: Color(0xffE2E5EA)),
+                    const Icon(Icons.star, color: AppColors.lightGrey),
                 ],
               ),
             ],

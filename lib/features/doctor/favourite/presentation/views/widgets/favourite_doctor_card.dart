@@ -1,10 +1,10 @@
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/features/doctor/home/data/models/doctor_model.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 
 class FavouriteDoctorCard extends StatefulWidget {
-  final DoctorModel doctor;
+  final PatientDoctorModel doctor;
 
   const FavouriteDoctorCard({super.key, required this.doctor});
 
@@ -22,8 +22,8 @@ class _FavouriteDoctorCardState extends State<FavouriteDoctorCard> {
           width: 180,
           child: Card(
             elevation: 3,
-            shadowColor: Colors.grey.shade400,
-            color: Colors.white,
+            shadowColor: AppColors.grey400,
+            color:AppColors.white,
             child: Padding(
               padding: const EdgeInsets.all(8),
               child: Column(
@@ -34,30 +34,29 @@ class _FavouriteDoctorCardState extends State<FavouriteDoctorCard> {
                     height: 84,
                     fit: BoxFit.fill,
                   ),
-                  SizedBox(height: 8),
-                  Text(widget.doctor.name, style: AppTextStyle.medium18),
-                  SizedBox(height: 3),
-                  Text(widget.doctor.title, style: AppTextStyle.regular14),
+                  const SizedBox(height: 8),
+                  Text(widget.doctor.name, style: context.medium18),
+                  const SizedBox(height: 3),
+                  Text(widget.doctor.title, style: context.regular14),
                 ],
               ),
             ),
           ),
         ),
-       Positioned(
-                right: 10,
-                top: 15,
-                child: GestureDetector(
-                  onTap: () {
-                    isFavourite = !isFavourite;
-                    setState(() {});
-                  },
-                  child: Icon(
-                    Icons.favorite_outline,
-                    color:isFavourite?Colors.red : AppColors.greyColor,
-                  ),
-                ),
-              )
-            
+        Positioned(
+          right: 10,
+          top: 15,
+          child: GestureDetector(
+            onTap: () {
+              isFavourite = !isFavourite;
+              setState(() {});
+            },
+            child: Icon(
+              Icons.favorite_outline,
+              color: isFavourite ? AppColors.red: AppColors.grey,
+            ),
+          ),
+        ),
       ],
     );
   }

@@ -8,7 +8,7 @@ import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class TimeSelectionView extends StatelessWidget {
-  final DoctorModel doctor;
+  final PatientDoctorModel doctor;
   const TimeSelectionView({super.key, required this.doctor});
 
   @override

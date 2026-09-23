@@ -14,7 +14,7 @@ class OnBoardingBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(color: Colors.white),
+        Container(color: AppColors.white),
         Positioned(
           bottom: -100,
           right: -100,
@@ -23,7 +23,7 @@ class OnBoardingBackground extends StatelessWidget {
             height: 300,
             decoration: const BoxDecoration(
               gradient: RadialGradient(
-                colors: [Color.fromARGB(255, 148, 237, 194), Colors.white],
+                colors: [Color.fromARGB(255, 148, 237, 194), AppColors.white],
               ),
             ),
           ),
@@ -35,7 +35,7 @@ class OnBoardingBackground extends StatelessWidget {
           child: Container(
             height: 300,
             width: 300,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: AppColors.primaryColor,
             ),

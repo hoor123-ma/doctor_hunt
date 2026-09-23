@@ -1,7 +1,7 @@
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/features/admin/doctors/create_doctor/presentation/controller/add_doctor_photo/add_doctor_photo_cubit.dart';
 import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,11 +26,11 @@ class AddPhoto extends StatelessWidget {
             height: 70,
             decoration: BoxDecoration(
               border: Border.all(
-                color: AppColors.greyColor.withValues(alpha: .6),
+                color: AppColors.grey.withValues(alpha: .6),
                 width: 1,
               ),
               shape: BoxShape.circle,
-              color: Colors.white,
+              color: AppColors.white,
             ),
             child: isLoading
                 ? const Center(
@@ -46,7 +46,7 @@ class AddPhoto extends StatelessWidget {
                 : imageUrl == null
                 ? const Icon(
                     Icons.camera_alt_outlined,
-                    color: AppColors.greyColor,
+                    color: AppColors.grey,
                     size: 26,
                   )
                 : ClipOval(
@@ -62,7 +62,7 @@ class AddPhoto extends StatelessWidget {
         const SizedBox(height: 5),
         Text(
           S.of(context).addPhoto,
-          style: AppTextStyle.regular12.copyWith(color: AppColors.primaryColor),
+          style: context.regular12PrimaryColor,
         ),
       ],
     );

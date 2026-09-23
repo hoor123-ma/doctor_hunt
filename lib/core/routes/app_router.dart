@@ -1,6 +1,9 @@
 import 'package:doctor_hunt/core/routes/route_names.dart';
 import 'package:doctor_hunt/core/services/shared_prefrence_services.dart';
 import 'package:doctor_hunt/features/admin/doctors/create_doctor/presentation/create_doctor_view.dart';
+import 'package:doctor_hunt/features/admin/doctors/data/models/amin_doctor_model.dart';
+import 'package:doctor_hunt/features/admin/doctors/doctor_details/presentation/admin_doctor_details_view.dart';
+import 'package:doctor_hunt/features/admin/doctors/edit_doctor/presentation/edit_doctor_view.dart';
 import 'package:doctor_hunt/features/common/auth/data/services/auth_service.dart';
 import 'package:doctor_hunt/service_locator.dart';
 import 'package:doctor_hunt/features/admin/admin_layout/presentation/admin_layout.dart';
@@ -71,7 +74,7 @@ class AppRouter {
         path: RouteNames.doctorDetailsRoute,
 
         builder: (context, state) =>
-            DoctorDetails(doctor: state.extra as DoctorModel),
+            DoctorDetails(doctor: state.extra as PatientDoctorModel),
       ),
       GoRoute(
         path: RouteNames.searchRoute,
@@ -82,7 +85,7 @@ class AppRouter {
         path: RouteNames.timeSelectionRoute,
 
         builder: (context, state) =>
-            TimeSelectionView(doctor: state.extra as DoctorModel),
+            TimeSelectionView(doctor: state.extra as PatientDoctorModel),
       ),
       GoRoute(
         path: RouteNames.appointmentRoute,
@@ -98,6 +101,18 @@ class AppRouter {
         path: RouteNames.createDoctorRoute,
 
         builder: (context, state) => const CreateDoctorView(),
+      ),
+      GoRoute(
+        path: RouteNames.adminDoctorDetailsRoute,
+
+        builder: (context, state) =>
+            AdminDoctorDetailsView(doctor: state.extra as AdminDoctorModel),
+      ),
+      GoRoute(
+        path: RouteNames.editDoctorRoute,
+
+        builder: (context, state) =>
+            EditDoctorView(doctor: state.extra as AdminDoctorModel),
       ),
     ],
   );

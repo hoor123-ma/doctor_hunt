@@ -1,8 +1,10 @@
+import 'package:doctor_hunt/core/routes/route_names.dart';
 import 'package:doctor_hunt/core/theme/app_colors.dart';
 import 'package:doctor_hunt/features/admin/doctors/doctors_list/presentation/controller/getdoctors/get_doctors_cubit.dart';
 import 'package:doctor_hunt/features/admin/doctors/doctors_list/presentation/widgets/doctor_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class DoctorsListView extends StatefulWidget {
   const DoctorsListView({super.key});
@@ -31,7 +33,15 @@ class _DoctorsListViewState extends State<DoctorsListView> {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 4),
-                child: DoctorItem(doctor: state.doctors[index]),
+                child: GestureDetector(
+                  child: DoctorItem(doctor: state.doctors[index]),
+                  onTap: () {
+                    context.push(
+                      RouteNames.adminDoctorDetailsRoute,
+                      extra: state.doctors[index],
+                    );
+                  },
+                ),
               );
             },
           );

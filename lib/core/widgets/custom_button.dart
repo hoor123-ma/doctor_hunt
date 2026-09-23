@@ -1,8 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/material.dart';
-
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
+import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final void Function()? onTap;
@@ -16,7 +15,7 @@ class CustomButton extends StatelessWidget {
     required this.title,
     this.backgroundColor = AppColors.primaryColor,
     this.borderColor,
-    this.titleColor = AppColors.whiteColor
+    this.titleColor = AppColors.white,
   });
 
   @override
@@ -25,18 +24,13 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 14),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
           color: backgroundColor,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(16),
           border: borderColor == null ? null : Border.all(color: borderColor!),
         ),
-        child: Center(
-          child: Text(
-            title,
-            style: AppTextStyle.medium18.copyWith(color: titleColor),
-          ),
-        ),
+        child: Center(child: Text(title, style: context.medium14WhiteColor)),
       ),
     );
   }

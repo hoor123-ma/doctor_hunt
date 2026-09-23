@@ -1,4 +1,7 @@
+import 'package:doctor_hunt/core/theme/app_colors.dart';
 import 'package:doctor_hunt/features/common/auth/presentation/controller/signin/signin_cubit.dart';
+import 'package:doctor_hunt/generated/assets.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -15,43 +18,42 @@ class LoginWithFacebookAndGoogleButtons extends StatelessWidget {
         Expanded(
           child: GestureDetector(
             onTap: () {
-           
               context.read<SigninCubit>().signInWithGoogle(role);
             },
             child: Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.shade100,
+                    color: AppColors.grey100,
                     blurRadius: 10,
                     spreadRadius: 5,
-                    offset: Offset(2, 4),
+                    offset: const Offset(2, 4),
                   ),
                 ],
-                color: Colors.white,
+                color: AppColors.white,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Center(
                 child: Row(
                   children: [
                     SvgPicture.asset(
-                      'assets/images/google_logo.svg',
+                      Assets.assetsImagesGoogleLogo,
                       width: 24,
                       height: 24,
                     ),
-                    SizedBox(width: 10),
-                    Text("Google"),
+                    const SizedBox(width: 10),
+                    Text(S.of(context).google),
                   ],
                 ),
               ),
             ),
           ),
         ),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         Expanded(
           child: Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
@@ -60,12 +62,12 @@ class LoginWithFacebookAndGoogleButtons extends StatelessWidget {
                   color: Colors.grey.shade100,
                   blurRadius: 10,
                   spreadRadius: 5,
-                  offset: Offset(2, 4),
+                  offset: const Offset(2, 4),
                 ),
               ],
             ),
 
-            child: Center(
+            child: const Center(
               child: Row(
                 children: [
                   FaIcon(FontAwesomeIcons.facebook, color: Colors.blueAccent),

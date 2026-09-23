@@ -35,7 +35,7 @@ class ProfilePhoto extends StatelessWidget {
               width: containerSize,
               height: containerSize,
               decoration: BoxDecoration(
-                color: AppColors.greyColor.withValues(alpha: .2),
+                color: AppColors.grey.withValues(alpha: .2),
                 shape: BoxShape.circle,
               ),
               child: Center(
@@ -43,7 +43,7 @@ class ProfilePhoto extends StatelessWidget {
                   width: iconSize,
                   height: iconSize,
                   child: CircularProgressIndicator(
-                    color: AppColors.greyColor.withValues(alpha: 0.2),
+                    color: AppColors.grey.withValues(alpha: 0.2),
                   ),
                 ),
               ),
@@ -55,14 +55,14 @@ class ProfilePhoto extends StatelessWidget {
               height: containerSize,
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: AppColors.greyColor.withValues(alpha: .2),
+                color: AppColors.grey.withValues(alpha: .2),
                 shape: BoxShape.circle,
               ),
               child: Center(
                 child: Icon(
                   Icons.person,
                   size: iconSize,
-                  color: AppColors.greyColor,
+                  color: AppColors.grey,
                 ),
               ),
             )

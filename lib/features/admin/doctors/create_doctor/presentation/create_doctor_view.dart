@@ -61,14 +61,16 @@ class CreateDoctorView extends StatelessWidget {
                   padding: EdgeInsets.symmetric(
                     horizontal: AppConsts.horizentalPadding,
                   ),
-                  child: Column(
-                    children: [
-                      CustomAppBar(title: S.of(context).createDoctor),
-                      const SizedBox(height: 30),
-                      AddPhoto(imageUrl: imageUrl, isLoading: isPhotoLoading),
-                      const SizedBox(height: 30),
-                      DoctorInfo(imageUrl: imageUrl),
-                    ],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        CustomAppBar(title: S.of(context).createDoctor),
+                        const SizedBox(height: 30),
+                        AddPhoto(imageUrl: imageUrl, isLoading: isPhotoLoading),
+                        const SizedBox(height: 30),
+                        DoctorInfo(imageUrl: imageUrl),
+                      ],
+                    ),
                   ),
                 ),
               ),

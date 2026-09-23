@@ -1,13 +1,14 @@
 import 'package:doctor_hunt/core/routes/route_names.dart';
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/features/doctor/home/data/models/doctor_model.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class DoctorDetailCard extends StatefulWidget {
-  final DoctorModel doctor;
+  final PatientDoctorModel doctor;
 
   const DoctorDetailCard({super.key, required this.doctor});
 
@@ -23,7 +24,7 @@ class _DoctorDetailCardState extends State<DoctorDetailCard> {
     return Stack(
       children: [
         Card(
-          color: Colors.white,
+          color: AppColors.white,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
             child: Column(
@@ -44,7 +45,7 @@ class _DoctorDetailCardState extends State<DoctorDetailCard> {
                               Flexible(
                                 child: Text(
                                   widget.doctor.name,
-                                  style: AppTextStyle.medium18,
+                                  style: context.medium18,
                                   maxLines: 2,
                                 ),
                               ),
@@ -54,7 +55,7 @@ class _DoctorDetailCardState extends State<DoctorDetailCard> {
                           if (widget.doctor.title.isNotEmpty)
                             Text(
                               widget.doctor.title,
-                              style: AppTextStyle.regular14,
+                              style: context.regular14,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -80,7 +81,7 @@ class _DoctorDetailCardState extends State<DoctorDetailCard> {
                         extra: widget.doctor,
                       );
                     },
-                    title: "Book now",
+                    title: S.of(context).bookNow,
                   ),
                 ),
               ],
@@ -98,7 +99,7 @@ class _DoctorDetailCardState extends State<DoctorDetailCard> {
             },
             child: Icon(
               isFavourite ? Icons.favorite : Icons.favorite_outline,
-              color: isFavourite ? Colors.red : AppColors.greyColor,
+              color: isFavourite ? AppColors.red : AppColors.grey,
             ),
           ),
         ),
@@ -114,19 +115,19 @@ class _DoctorDetailCardState extends State<DoctorDetailCard> {
           mainAxisSize: MainAxisSize.min,
           children: [
             for (int i = 0; i < widget.doctor.rating.floor(); i++)
-              const Icon(Icons.star, color: Color(0xffF6D060), size: 18),
+              const Icon(Icons.star, color: AppColors.yellow, size: 18),
 
             for (int i = 0; i < 5 - widget.doctor.rating; i++)
-              const Icon(Icons.star, color: Color(0xffE2E5EA), size: 18),
+              const Icon(Icons.star, color: AppColors.lightGrey, size: 18),
           ],
         ),
-        SizedBox(width: 4),
+        const SizedBox(width: 4),
         // Price
         Flexible(
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(
+              const Icon(
                 Icons.attach_money_rounded,
                 color: AppColors.primaryColor,
                 size: 18,
@@ -135,7 +136,7 @@ class _DoctorDetailCardState extends State<DoctorDetailCard> {
               Flexible(
                 child: Text(
                   "${widget.doctor.price}/hours",
-                  style: AppTextStyle.regular14,
+                  style: context.regular14,
                   maxLines: 2,
                 ),
               ),

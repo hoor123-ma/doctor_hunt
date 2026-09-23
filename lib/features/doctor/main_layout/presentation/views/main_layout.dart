@@ -51,13 +51,13 @@ class _MainLayoutState extends State<MainLayout> {
                 topRight: Radius.circular(25),
               ),
               child: BottomNavigationBar(
-                backgroundColor: Colors.white,
+                backgroundColor: AppColors.white,
                 showSelectedLabels: false,
                 showUnselectedLabels: false,
                 elevation: 2,
                 type: BottomNavigationBarType.fixed,
                 currentIndex: currentIndex,
-                unselectedItemColor: AppColors.greyColor,
+                unselectedItemColor: AppColors.grey,
 
                 onTap: (index) {
                   setState(() {

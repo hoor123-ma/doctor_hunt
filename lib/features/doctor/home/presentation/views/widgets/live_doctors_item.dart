@@ -1,3 +1,5 @@
+import 'package:doctor_hunt/core/theme/app_colors.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class LiveDoctorsItem extends StatelessWidget {
@@ -13,29 +15,29 @@ class LiveDoctorsItem extends StatelessWidget {
           top: 30,
           right: 20,
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
             decoration: BoxDecoration(
-              color: Colors.red,
+              color: AppColors.red,
               borderRadius: BorderRadius.circular(4),
             ),
             child: Row(
               children: [
-                Icon(Icons.circle, color: Colors.white, size: 6),
-                SizedBox(width: 2),
+                const Icon(Icons.circle, color: AppColors.white, size: 6),
+                const SizedBox(width: 2),
                 Text(
-                  "LIVE",
-                  style: TextStyle(color: Colors.white, fontSize: 7),
+                  S.of(context).live,
+                  style: const TextStyle(color: AppColors.white, fontSize: 7),
                 ),
               ],
             ),
           ),
         ),
-        Positioned(
+        const Positioned(
           left: 45,
           bottom: 60,
           child: Icon(
             Icons.play_circle_outline_rounded,
-            color: Colors.white,
+            color: AppColors.white,
             size: 30,
           ),
         ),

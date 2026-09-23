@@ -1,4 +1,5 @@
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 
 class CustomSkipButton extends StatelessWidget {
@@ -9,7 +10,7 @@ class CustomSkipButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
-      child: Text("Skip", style: AppTextStyle.regular14),
+      child: Text(S.of(context).skip, style: context.regular14),
     );
   }
 }

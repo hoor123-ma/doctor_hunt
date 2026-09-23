@@ -1,5 +1,6 @@
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 
 class ServiceDetails extends StatelessWidget {
@@ -10,63 +11,39 @@ class ServiceDetails extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Services", style: AppTextStyle.medium18),
-        SizedBox(height: 10),
+        Text(S.of(context).services, style: context.medium18),
+        const SizedBox(height: 10),
         Row(
           children: [
-            Text(
-              "1. ",
-              style: AppTextStyle.medium18.copyWith(
-                color: AppColors.primaryColor,
-                fontSize: 13,
-              ),
-            ),
+            Text("1. ", style: context.medium14PrimaryColor),
             Expanded(
-              child: Text(
-                " Patient care should be the number one priority.",
-                style: AppTextStyle.regular14.copyWith(fontSize: 13),
-              ),
+              child: Text(S.of(context).patientCare, style: context.regular14),
             ),
           ],
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         buildLine(context),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "2. ",
-              style: AppTextStyle.medium18.copyWith(
-                color: AppColors.primaryColor,
-                fontSize: 13,
-              ),
-            ),
+            Text("2. ", style: context.medium14PrimaryColor),
             Expanded(
-              child: Text(
-                "If you run your practiceyou know how frustrating.",
-                style: AppTextStyle.regular14.copyWith(fontSize: 13),
-              ),
+              child: Text(S.of(context).frustrating, style: context.regular14),
             ),
           ],
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         buildLine(context),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "3. ",
-              style: AppTextStyle.medium18.copyWith(
-                color: AppColors.primaryColor,
-                fontSize: 13,
-              ),
-            ),
+            Text("3. ", style: context.medium14PrimaryColor),
             Expanded(
               child: Text(
-                "That’s why some of appointment reminder system.",
-                style: AppTextStyle.regular14.copyWith(fontSize: 13),
+                S.of(context).appointmentReminder,
+                style: context.regular14,
               ),
             ),
           ],
@@ -80,7 +57,7 @@ class ServiceDetails extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width * .8,
         height: 1,
-        decoration: BoxDecoration(color: Colors.grey.shade300),
+        decoration: const BoxDecoration(color: AppColors.lightGrey),
       ),
     );
   }

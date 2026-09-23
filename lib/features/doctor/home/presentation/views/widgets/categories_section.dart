@@ -8,7 +8,7 @@ class CategoriesSection extends StatelessWidget {
   const CategoriesSection({super.key});
   final List<CategoryModel> categories = const [
     CategoryModel(
-      backgroundcolor: Color(0xff2753F3),
+      backgroundcolor:AppColors.blue,
       svgLink: Assets.assetsImagesCategory1,
     ),
     CategoryModel(
@@ -16,15 +16,15 @@ class CategoriesSection extends StatelessWidget {
       svgLink: Assets.assetsImagesCategory2,
     ),
     CategoryModel(
-      backgroundcolor: Color(0xffFE7F44),
+      backgroundcolor:AppColors.orange,
       svgLink: Assets.assetsImagesCategory3,
     ),
     CategoryModel(
-      backgroundcolor: Color(0xffFF484C),
+      backgroundcolor: AppColors.red,
       svgLink: Assets.assetsImagesCategory4,
     ),
     CategoryModel(
-      backgroundcolor: Color(0xff2753F3),
+      backgroundcolor: AppColors.blue,
       svgLink: Assets.assetsImagesCategory1,
     ),
     CategoryModel(
@@ -32,11 +32,11 @@ class CategoriesSection extends StatelessWidget {
       svgLink: Assets.assetsImagesCategory2,
     ),
     CategoryModel(
-      backgroundcolor: Color(0xffFE7F44),
+      backgroundcolor: AppColors.orange,
       svgLink: Assets.assetsImagesCategory3,
     ),
     CategoryModel(
-      backgroundcolor: Color(0xffFF484C),
+      backgroundcolor: AppColors.red,
       svgLink: Assets.assetsImagesCategory4,
     ),
   ];

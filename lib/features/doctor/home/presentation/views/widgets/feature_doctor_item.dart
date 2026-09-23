@@ -1,12 +1,12 @@
 import 'package:doctor_hunt/core/routes/route_names.dart';
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/features/doctor/home/data/models/doctor_model.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class FeatureDoctorItem extends StatelessWidget {
-  final DoctorModel doctor;
+  final PatientDoctorModel doctor;
   const FeatureDoctorItem({super.key, required this.doctor});
 
   @override
@@ -21,8 +21,8 @@ class FeatureDoctorItem extends StatelessWidget {
           },
           child: Card(
             elevation: 3,
-            shadowColor: Colors.grey.shade400,
-            color: Colors.white,
+            shadowColor: AppColors.grey400,
+            color: AppColors.white,
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
               child: Column(
@@ -35,19 +35,19 @@ class FeatureDoctorItem extends StatelessWidget {
                     height: 54,
                     fit: BoxFit.cover,
                   ),
-                  SizedBox(height: 4),
-                  Text(doctor.name, style: AppTextStyle.medium18),
+                  const SizedBox(height: 4),
+                  Text(doctor.name, style: context.medium18),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.attach_money_rounded,
                         color: AppColors.primaryColor,
                         size: 18,
                       ),
                       Text(
                         "${doctor.price.toString()}/hours",
-                        style: AppTextStyle.regular14,
+                        style: context.regular14,
                       ),
                     ],
                   ),
@@ -62,7 +62,7 @@ class FeatureDoctorItem extends StatelessWidget {
 }
 
 class FavouriteAndRatingPart extends StatefulWidget {
-  final DoctorModel doctor;
+  final PatientDoctorModel doctor;
   const FavouriteAndRatingPart({super.key, required this.doctor});
 
   @override
@@ -81,19 +81,22 @@ class _FavouriteAndRatingPartState extends State<FavouriteAndRatingPart> {
                   isFavourite = !isFavourite;
                   setState(() {});
                 },
-                child: Icon(Icons.favorite_outline, color: AppColors.greyColor),
+                child: const Icon(
+                  Icons.favorite_outline,
+                  color: AppColors.grey,
+                ),
               )
             : GestureDetector(
                 onTap: () {
                   isFavourite = !isFavourite;
                   setState(() {});
                 },
-                child: Icon(Icons.favorite, color: Colors.red),
+                child: const Icon(Icons.favorite, color: AppColors.red),
               ),
-        Spacer(),
+        const Spacer(),
         Row(
           children: [
-            Icon(Icons.star, color: Color(0xffF6D060)),
+            const Icon(Icons.star, color: AppColors.yellow),
 
             Text(widget.doctor.rating.toString()),
           ],

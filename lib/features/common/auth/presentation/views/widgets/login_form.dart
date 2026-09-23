@@ -1,19 +1,15 @@
-import 'dart:math';
-
-import 'package:doctor_hunt/core/routes/route_names.dart';
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/core/utils/functions/validations/email_validator.dart';
-import 'package:doctor_hunt/core/utils/functions/validations/forget_password_code_validator.dart';
 import 'package:doctor_hunt/core/utils/functions/validations/password_validator.dart';
-import 'package:doctor_hunt/service_locator.dart';
 import 'package:doctor_hunt/core/widgets/custom_button.dart';
 import 'package:doctor_hunt/core/widgets/custom_password_field.dart';
 import 'package:doctor_hunt/core/widgets/custom_text_form_field.dart';
 import 'package:doctor_hunt/features/common/auth/data/repos/auth_repo_imp.dart';
 import 'package:doctor_hunt/features/common/auth/presentation/controller/resetpassword/resetpassword_cubit.dart';
 import 'package:doctor_hunt/features/common/auth/presentation/controller/signin/signin_cubit.dart';
-import 'package:doctor_hunt/features/common/auth/presentation/views/widgets/custom_pass_handler_container.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
+import 'package:doctor_hunt/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -40,18 +36,16 @@ class _LoginFormState extends State<LoginForm> {
         children: [
           CustomTextField(
             controller: emailController,
-
-            hintText: "Email",
+            hintText: S.of(context).email,
             validator: validateEmail,
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           CustomPasswordField(
             controller: passwordController,
-
-            hintText: "Password",
+            hintText: S.of(context).password,
             validator: validatePassword,
           ),
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           CustomButton(
             onTap: () async {
               if (_formKey.currentState!.validate()) {
@@ -63,14 +57,14 @@ class _LoginFormState extends State<LoginForm> {
                 );
               }
             },
-            title: 'Login',
+            title: S.of(context).logIn,
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Center(
             child: GestureDetector(
               child: Text(
-                "Forgot password?",
-                style: TextStyle(color: AppColors.primaryColor, fontSize: 14),
+                S.of(context).forgotPassword,
+                style: context.regular14PrimaryColor,
               ),
               onTap: () {
                 showForgetPasswordBottomSheet(context);
@@ -99,10 +93,8 @@ class _LoginFormState extends State<LoginForm> {
                   SnackBar(
                     backgroundColor: AppColors.primaryColor,
                     content: Text(
-                      'Password reset code sent successfully',
-                      style: AppTextStyle.medium18.copyWith(
-                        color: Colors.white,
-                      ),
+                      S.of(context).passwordResetCodeSent,
+                      style: context.medium18WhiteColor,
                     ),
                   ),
                 );
@@ -133,33 +125,25 @@ class _LoginFormState extends State<LoginForm> {
                         height: 5,
                         width: MediaQuery.of(context).size.width * .4,
                         decoration: BoxDecoration(
-                          color: Colors.grey.shade400,
+                          color: AppColors.grey400,
                           borderRadius: BorderRadius.circular(30),
                         ),
                       ),
                     ),
-
                     const SizedBox(height: 30),
-
-                    Text("Forgot password", style: AppTextStyle.medium28),
-
-                    const SizedBox(height: 10),
-
                     Text(
-                      "Enter your email for the verification process",
-                      style: AppTextStyle.regular14,
+                      S.of(context).forgotPasswordTitle,
+                      style: context.medium28,
                     ),
-
+                    const SizedBox(height: 10),
+                    Text(S.of(context).enterEmail, style: context.regular14),
                     const SizedBox(height: 20),
-
                     CustomTextField(
-                      hintText: "Email",
+                      hintText: S.of(context).email,
                       validator: validateEmail,
                       controller: resetEmailController,
                     ),
-
                     const SizedBox(height: 20),
-
                     Builder(
                       builder: (context) => CustomButton(
                         onTap: () async {
@@ -171,7 +155,7 @@ class _LoginFormState extends State<LoginForm> {
                                 );
                           }
                         },
-                        title: "Send",
+                        title: S.of(context).send,
                       ),
                     ),
                     const SizedBox(height: 20),

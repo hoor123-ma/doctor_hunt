@@ -5,26 +5,26 @@ import 'package:flutter/material.dart';
 
 class FavouriteDoctors extends StatelessWidget {
   const FavouriteDoctors({super.key});
-  final List<DoctorModel> doctors = const [
-    DoctorModel(
+  final List<PatientDoctorModel> doctors = const [
+    PatientDoctorModel(
       imageUrl: Assets.assetsImagesFeatureDoctor1,
       name: "Dr. Fillerup Grab",
       title: "Medicine Specialist",
       rating: 4,
     ),
-    DoctorModel(
+    PatientDoctorModel(
       imageUrl: Assets.assetsImagesFeatureDoctor2,
       name: "Dr. Blessing",
       title: "Dentist Specialist",
       rating: 3,
     ),
-    DoctorModel(
+    PatientDoctorModel(
       imageUrl: Assets.assetsImagesFeatureDoctor3,
       name: "Dr. Fillerup Grab",
       title: "Medicine Specialist",
       rating: 2,
     ),
-    DoctorModel(
+    PatientDoctorModel(
       imageUrl: Assets.assetsImagesFeatureDoctor4,
       name: "Dr. Blessing",
       title: "Dentist Specialist",
@@ -37,7 +37,7 @@ class FavouriteDoctors extends StatelessWidget {
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         childAspectRatio: 1,
         crossAxisCount: 2,
         mainAxisSpacing: 4,

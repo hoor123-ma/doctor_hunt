@@ -5,26 +5,26 @@ import 'package:flutter/material.dart';
 
 class FindDoctorsListView extends StatelessWidget {
   const FindDoctorsListView({super.key});
-  static List<DoctorModel> doctors = [
-    const DoctorModel(
+  static List<PatientDoctorModel> doctors = [
+    const PatientDoctorModel(
       imageUrl: Assets.assetsImagesPopularDoctor1,
       name: "Dr. Fillerup Grab",
       title: "Medicine Specialist",
       rating: 4,
     ),
-    const DoctorModel(
+    const PatientDoctorModel(
       imageUrl: Assets.assetsImagesPopularDoctor2,
       name: "Dr. Blessing",
       title: "Dentist Specialist",
       rating: 3,
     ),
-    const DoctorModel(
+    const PatientDoctorModel(
       imageUrl: Assets.assetsImagesPopularDoctor1,
       name: "Dr. Fillerup Grab",
       title: "Medicine Specialist",
       rating: 2,
     ),
-    const DoctorModel(
+    const PatientDoctorModel(
       imageUrl: Assets.assetsImagesPopularDoctor2,
       name: "Dr. Blessing",
       title: "Dentist Specialist",

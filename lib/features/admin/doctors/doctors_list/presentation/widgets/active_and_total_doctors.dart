@@ -1,18 +1,30 @@
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
+import 'package:doctor_hunt/core/theme/app_colors.dart';
+import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 
 class ActiveAndTotalDoctors extends StatelessWidget {
-  const ActiveAndTotalDoctors({super.key});
+  final int activeDoctorsNum;
+  final int totalDoctorsNum;
+  const ActiveAndTotalDoctors({super.key, required this.activeDoctorsNum, required this.totalDoctorsNum});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
-          child: CustomContainer(title: "Active Doctors", doctorsNum: 0),
+          child: CustomContainer(
+            title: S.of(context).activeDoctors,
+            doctorsNum: activeDoctorsNum
+          ),
         ),
-        SizedBox(width: 10),
-        Expanded(child: CustomContainer(title: "Total Doctors", doctorsNum: 0)),
+        const SizedBox(width: 10),
+        Expanded(
+          child: CustomContainer(
+            title: S.of(context).totalDoctors,
+            doctorsNum: totalDoctorsNum,
+          ),
+        ),
       ],
     );
   }
@@ -30,17 +42,17 @@ class CustomContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Colors.white,
+        color: AppColors.white,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: AppTextStyle.regular11),
-          SizedBox(height: 10),
-          Text(doctorsNum.toString(), style: AppTextStyle.bold18),
+          Text(title, style: context.regular11),
+          const SizedBox(height: 10),
+          Text(doctorsNum.toString(), style: context.bold18),
         ],
       ),
     );

@@ -1,6 +1,6 @@
-import 'package:doctor_hunt/core/theme/app_text_style.dart';
 import 'package:doctor_hunt/features/doctor/appointment/presentation/views/widgets/time_slot.dart';
 import 'package:doctor_hunt/generated/l10n.dart';
+import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 
 class AvailableSlotsSection extends StatefulWidget {
@@ -37,15 +37,15 @@ class _AvailableSlotsSectionState extends State<AvailableSlotsSection> {
     final l10n = S.of(context);
 
     return Padding(
-      padding: EdgeInsetsGeometry.symmetric(horizontal: 10),
+      padding: const EdgeInsetsGeometry.symmetric(horizontal: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             l10n.afternoonSlots(afternoonTimeSlots.length),
-            style: AppTextStyle.medium18,
+            style: context.medium18,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Wrap(
             spacing: 6,
             runSpacing: 8,
@@ -63,12 +63,12 @@ class _AvailableSlotsSectionState extends State<AvailableSlotsSection> {
               );
             }),
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Text(
             l10n.eveningSlots(eveningTimeSlots.length),
-            style: AppTextStyle.medium18,
+            style: context.medium18,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Wrap(
             spacing: 6,
             runSpacing: 8,
