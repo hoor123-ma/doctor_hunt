@@ -14,6 +14,10 @@ class GetDoctorsFailure extends GetDoctorsState {
 }
 
 class GetDoctorsSucces extends GetDoctorsState {
-  final List<AdminDoctorModel> doctors;
-  const GetDoctorsSucces({required this.doctors});
+  final List<AdminDoctorModel> doctorsList;
+  final int activeDoctorsNum;
+  const GetDoctorsSucces({
+    required this.doctorsList,
+    required this.activeDoctorsNum,
+  });
 }

@@ -36,7 +36,7 @@ class FeatureDoctorItem extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                   const SizedBox(height: 4),
-                  Text(doctor.name, style: context.medium18),
+                  Text(doctor.name, style: context.medium16),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [

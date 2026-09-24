@@ -9,10 +9,8 @@ abstract class DoctorsRepo {
     required String name,
     required String speciality,
   });
-  Future<Either<AppError, void>> updateDoctor({
-    required docId,
-    required Map<String, dynamic> data,
-  });
+  Future<Either<AppError, void>> updateDoctor(AdminDoctorModel doctor);
   Future<Either<AppError, void>> deleteDoctor(String docId);
   Stream<Either<AppError, List<AdminDoctorModel>>> getDoctors();
+  
 }

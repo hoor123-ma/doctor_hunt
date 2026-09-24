@@ -35,7 +35,7 @@ class FeatureDoctorsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 6, bottom: 100),
+      padding: const EdgeInsets.only(left: 6),
       child: SizedBox(
         height: 180,
         child: ListView.builder(

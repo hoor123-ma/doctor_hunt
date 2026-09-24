@@ -1,20 +1,18 @@
 import 'package:doctor_hunt/core/theme/app_colors.dart';
-import 'package:doctor_hunt/core/utils/functions/show_error_message.dart';
 import 'package:doctor_hunt/features/admin/doctors/create_doctor/presentation/controller/add_doctor_photo/add_doctor_photo_cubit.dart';
-import 'package:doctor_hunt/features/admin/doctors/data/models/amin_doctor_model.dart';
 import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EditDoctorPhoto extends StatelessWidget {
-  final AdminDoctorModel doctor;
+  final String imageUrl;
 
-  const EditDoctorPhoto({super.key, required this.doctor});
+  const EditDoctorPhoto({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AddDoctorPhotoCubit, AddDoctorPhotoState>(
+    return BlocBuilder<AddDoctorPhotoCubit, AddDoctorPhotoState>(
       builder: (context, state) {
         return Column(
           children: [
@@ -48,7 +46,9 @@ class EditDoctorPhoto extends StatelessWidget {
                       )
                     : ClipOval(
                         child: Image.network(
-                          doctor.imageUrl,
+                          state is AddDoctorPhotoSucces
+                              ? state.imageUrl
+                              : imageUrl,
                           width: 70,
                           height: 70,
                           fit: BoxFit.cover,
@@ -74,11 +74,6 @@ class EditDoctorPhoto extends StatelessWidget {
             ),
           ],
         );
-      },
-      listener: (BuildContext context, AddDoctorPhotoState state) {
-        if (state is AddDoctorPhotoFailure) {
-          showErrorMessage(context, state.errorMessage);
-        }
       },
     );
   }

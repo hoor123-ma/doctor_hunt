@@ -1,4 +1,3 @@
-
 import 'package:doctor_hunt/core/theme/app_colors.dart';
 import 'package:doctor_hunt/features/admin/doctors/data/models/amin_doctor_model.dart';
 import 'package:doctor_hunt/features/admin/doctors/edit_doctor/presentation/widgets/custom_switch.dart';
@@ -6,9 +5,10 @@ import 'package:doctor_hunt/generated/l10n.dart';
 import 'package:doctor_hunt/generated/style_atoms.dart';
 import 'package:flutter/material.dart';
 
-class AcvtivityCard extends StatelessWidget {
-  final AdminDoctorModel doctor;
-  const AcvtivityCard({super.key, required this.doctor});
+class ActivationCard extends StatelessWidget {
+  final bool isActive;
+ final void Function(bool) onChanged;
+  const ActivationCard({super.key,  required this.isActive, required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class AcvtivityCard extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            CustomSwitch(doctor: doctor),
+            CustomSwitch(isActive: isActive, onChanged: onChanged,),
           ],
         ),
       ),

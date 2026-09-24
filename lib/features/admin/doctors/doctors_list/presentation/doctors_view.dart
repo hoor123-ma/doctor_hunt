@@ -1,4 +1,5 @@
 import 'package:doctor_hunt/core/consts/app_consts.dart';
+import 'package:doctor_hunt/core/theme/app_colors.dart';
 import 'package:doctor_hunt/core/utils/functions/show_error_message.dart';
 import 'package:doctor_hunt/features/admin/doctors/data/repos/doctors_repo._imp.dart';
 import 'package:doctor_hunt/features/admin/doctors/doctors_list/presentation/controller/getdoctors/get_doctors_cubit.dart';
@@ -16,6 +17,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DoctorsView extends StatelessWidget {
   final UserModel user;
+
   const DoctorsView({super.key, required this.user});
 
   @override
@@ -32,42 +34,48 @@ class DoctorsView extends StatelessWidget {
                 ..getDoctors(),
         ),
       ],
-      child: SingleChildScrollView(
-        child: SafeArea(
-          minimum: EdgeInsets.symmetric(
-            horizontal: AppConsts.horizentalPadding,
-          ),
-          child: BlocConsumer<GetDoctorsCubit, GetDoctorsState>(
-            builder: (context, state) {
-              if (state is GetDoctorsSucces) {
-                return Column(
+      child: SafeArea(
+        minimum: EdgeInsets.symmetric(horizontal: AppConsts.horizentalPadding),
+        child: BlocConsumer<GetDoctorsCubit, GetDoctorsState>(
+          listener: (context, state) {
+            if (state is GetDoctorsFailure) {
+              showErrorMessage(context, state.errorMessage);
+            }
+          },
+          builder: (context, state) {
+            if (state is GetDoctorsSucces) {
+              return SingleChildScrollView(
+                child: Column(
                   children: [
                     CustomAdminAppBar(user: user),
                     const SizedBox(height: 10),
                     ActiveAndTotalDoctors(
-                      activeDoctorsNum: state.doctors.length,
-                      totalDoctorsNum: state.doctors.length,
+                      activeDoctorsNum: state.activeDoctorsNum,
+                      totalDoctorsNum: state.doctorsList.length,
                     ),
                     const SizedBox(height: 10),
                     const SearchField(),
-                    state.doctors.isEmpty
+                    state.doctorsList.isEmpty
                         ? const Padding(
                             padding: EdgeInsets.only(top: 30),
                             child: NoDoctorsSection(),
                           )
-                        : const DoctorsListView(),
+                        : DoctorsListView(doctors: state.doctorsList,),
+
                     const SizedBox(height: 50),
                   ],
-                );
-              }
-              return const Center(child: CircularProgressIndicator());
-            },
-            listener: (BuildContext context, GetDoctorsState state) {
-              if (state is GetDoctorsFailure) {
-                showErrorMessage(context, state.errorMessage);
-              }
-            },
-          ),
+                ),
+              );
+            }
+
+            if (state is GetDoctorsFailure) {
+              return Center(child: Text(state.errorMessage));
+            }
+
+            return const Center(
+              child: CircularProgressIndicator(color: AppColors.primaryColor),
+            );
+          },
         ),
       ),
     );

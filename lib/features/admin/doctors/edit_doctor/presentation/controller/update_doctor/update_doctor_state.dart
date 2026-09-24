@@ -1,17 +1,17 @@
 part of 'update_doctor_cubit.dart';
 
-abstract class UpdatedoctorState {
-  const UpdatedoctorState();
+abstract class UpdateDoctorState {
+  const UpdateDoctorState();
 }
 
-class UpdatedoctorInitial extends UpdatedoctorState {}
+class UpdateDoctorInitial extends UpdateDoctorState {}
 
-class UpdatedoctorLoading extends UpdatedoctorState {}
+class UpdateDoctorLoading extends UpdateDoctorState {}
 
-class UpdatedoctorSuccess extends UpdatedoctorState {}
+class UpdateDoctorSuccess extends UpdateDoctorState {}
 
-class UpdatedoctorFailure extends UpdatedoctorState {
+class UpdateDoctorFailure extends UpdateDoctorState {
   final String errorMessage;
 
-  UpdatedoctorFailure({required this.errorMessage});
+  UpdateDoctorFailure({required this.errorMessage});
 }

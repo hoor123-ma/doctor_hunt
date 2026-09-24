@@ -1,22 +1,20 @@
 import 'package:bloc/bloc.dart';
+import 'package:doctor_hunt/features/admin/doctors/data/models/amin_doctor_model.dart';
 import 'package:doctor_hunt/features/admin/doctors/data/repos/doctors_repo.dart';
 
 part 'update_doctor_state.dart';
 
-class UpdatedoctorCubit extends Cubit<UpdatedoctorState> {
+class UpdateDoctorCubit extends Cubit<UpdateDoctorState> {
   final DoctorsRepo doctorsRepo;
-  UpdatedoctorCubit({required this.doctorsRepo}) : super(UpdatedoctorInitial());
-  Future<void> updateDoctor({
-    required String docId,
-    required Map<String, dynamic> data,
-  }) async {
-    final result = await doctorsRepo.updateDoctor(docId: docId, data: data);
+  UpdateDoctorCubit({required this.doctorsRepo}) : super(UpdateDoctorInitial());
+  Future<void> updateDoctor(AdminDoctorModel doctor) async {
+    final result = await doctorsRepo.updateDoctor(doctor);
     result.fold(
       (eror) {
-        emit(UpdatedoctorFailure(errorMessage: eror.errorMsg));
+        emit(UpdateDoctorFailure(errorMessage: eror.errorMsg));
       },
       (succes) {
-        emit(UpdatedoctorSuccess());
+        emit(UpdateDoctorSuccess());
       },
     );
   }

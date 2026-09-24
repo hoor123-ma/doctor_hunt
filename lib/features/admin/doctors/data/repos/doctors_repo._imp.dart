@@ -96,9 +96,13 @@ class DoctorsRepoImp implements DoctorsRepo {
   }
 
   @override
-  Future<Either<AppError, void>> updateDoctor({required docId, required Map<String, dynamic> data}) async{
-     try {
-      await firestoreService.updateDoc(AppConsts.doctorsCollection, docId,data);
+  Future<Either<AppError, void>> updateDoctor(AdminDoctorModel doctor) async {
+    try {
+      await firestoreService.updateDoc(
+        AppConsts.doctorsCollection,
+        doctor.id,
+        doctor.toJson(),
+      );
       return const Right(null);
     } on FirebaseException catch (e) {
       return Left(FirestoreError.fromFirebaseException(e));
@@ -107,7 +111,4 @@ class DoctorsRepoImp implements DoctorsRepo {
     }
   }
 
-  
-
- 
 }

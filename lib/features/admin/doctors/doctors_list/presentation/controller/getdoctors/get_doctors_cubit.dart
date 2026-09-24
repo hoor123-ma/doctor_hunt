@@ -13,6 +13,7 @@ class GetDoctorsCubit extends Cubit<GetDoctorsState> {
   _doctorSubscription;
   GetDoctorsCubit({required this.doctorsRepo}) : super(GetDoctorsInitial());
   final DoctorsRepo doctorsRepo;
+  late int activeDoctors;
   void getDoctors() {
     _doctorSubscription?.cancel();
     emit(GetDoctorsLoading());
@@ -22,7 +23,13 @@ class GetDoctorsCubit extends Cubit<GetDoctorsState> {
           emit(GetDoctorsFailure(errorMessage: error.errorMsg));
         },
         (doctors) {
-          emit(GetDoctorsSucces(doctors: doctors));
+          activeDoctors = doctors.where((doctor) => doctor.isActive).length;
+          emit(
+            GetDoctorsSucces(
+              doctorsList: doctors,
+              activeDoctorsNum: activeDoctors,
+            ),
+          );
         },
       );
     });
